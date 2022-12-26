@@ -1,4 +1,4 @@
-import { createRequire } from "module";
+import {createRequire} from "module";
 import createStatementData from './createStatementData.js';
 
 const require = createRequire(import.meta.url);
