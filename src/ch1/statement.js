@@ -24,6 +24,37 @@ function statement(invoice, plays) {
         return result;
     }
 
+    function totalVolumeCredits() {
+        let volumeCredits = 0;
+        for (let perf of invoice.performances) {
+            volumeCredits += volumeCreditsFor(perf);
+        }
+        return volumeCredits;
+    }
+
+    function usd(aNumber) {
+        return new Intl.NumberFormat(
+            "en-US",
+            {style: "currency", currency: "USD", minimumFractionDigits: 2}
+        ).format(aNumber / 100);
+    }
+
+    function volumeCreditsFor(perf) {
+        let volumeCredits = 0;
+
+        volumeCredits += Math.max(perf.audience - 30, 0);
+
+        if ("comedy" === playFor(perf).type) {
+            volumeCredits += Math.floor(perf.audience / 5);
+        }
+
+        return volumeCredits;
+    }
+
+    function playFor(perf) {
+        return plays[perf.playID];
+    }
+
     function amountFor(aPerformance) {
         let result = 0;
 
@@ -49,37 +80,6 @@ function statement(invoice, plays) {
 
         return result;
     }
-
-    function playFor(perf) {
-        return plays[perf.playID];
-    }
-
-    function totalVolumeCredits() {
-        let volumeCredits = 0;
-        for (let perf of invoice.performances) {
-            volumeCredits += volumeCreditsFor(perf);
-        }
-        return volumeCredits;
-    }
-
-    function volumeCreditsFor(perf) {
-        let volumeCredits = 0;
-
-        volumeCredits += Math.max(perf.audience - 30, 0);
-
-        if ("comedy" === playFor(perf).type) {
-            volumeCredits += Math.floor(perf.audience / 5);
-        }
-
-        return volumeCredits;
-    }
-}
-
-function usd(aNumber) {
-    return new Intl.NumberFormat(
-        "en-US",
-        {style: "currency", currency: "USD", minimumFractionDigits: 2}
-    ).format(aNumber / 100);
 }
 
 const result = statement(invoicesJson[0], playsJson);
