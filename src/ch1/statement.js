@@ -70,7 +70,7 @@ function createStatementData(invoice, plays) {
 
     function totalAmount(data) {
         return data.performances
-            .reduce((total, p) => total + p.volumeCredits, 0);
+            .reduce((total, p) => total + p.amount, 0);
     }
 
     function totalVolumeCredits(data) {
