@@ -1,4 +1,4 @@
-import { createRequire } from "module";
+import {createRequire} from "module";
 
 const require = createRequire(import.meta.url);
 
@@ -55,5 +55,4 @@ function statement(invoice, plays) {
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
-const result = statement(invoicesJson[0], playsJson);
-console.log(result);
+console.log(statement(invoicesJson[0], playsJson));
