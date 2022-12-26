@@ -51,6 +51,7 @@ function statement(invoice, plays) {
     return result;
 }
 
+// NOTE: 예제 코드 실행을 위한 임시 구문
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
