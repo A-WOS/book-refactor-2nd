@@ -1,5 +1,6 @@
-const invoicesJson = require('./invoices.json');
-const playsJson = require('./plays.json');
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 
 function statement(invoice, plays) {
     let totalAmount = 0;
@@ -49,6 +50,9 @@ function statement(invoice, plays) {
 
     return result;
 }
+
+const invoicesJson = require('./invoices.json');
+const playsJson = require('./plays.json');
 
 const result = statement(invoicesJson[0], playsJson);
 console.log(result);
