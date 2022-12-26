@@ -1,3 +1,6 @@
+const invoicesJson = require('./invoices.json');
+const playsJson = require('./plays.json');
+
 function statement(invoice, plays) {
     let totalAmount = 0;
     let volumeCredits = 0;
@@ -46,3 +49,6 @@ function statement(invoice, plays) {
 
     return result;
 }
+
+const result = statement(invoicesJson[0], playsJson);
+console.log(result);
