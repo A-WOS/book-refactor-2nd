@@ -2,6 +2,10 @@ const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
 function statement(invoice, plays) {
+    return renderPlainText(createStatementData(invoice, plays));
+}
+
+function createStatementData(invoice, plays) {
     const statementData = {};
 
     statementData.customer = invoice.customer;
@@ -9,7 +13,7 @@ function statement(invoice, plays) {
     statementData.totalAmount = totalAmount(statementData);
     statementData.totalVolumeCredits = totalVolumeCredits(statementData);
 
-    return renderPlainText(statementData, plays);
+    return statementData;
 
     function enrichPerformance(aPerformance) {
         const result = Object.assign({}, aPerformance); // 얕은 복사 수행 (1 depth copy)
