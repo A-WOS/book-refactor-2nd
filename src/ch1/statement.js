@@ -1,5 +1,6 @@
-const invoicesJson = require('./invoices.json');
-const playsJson = require('./plays.json');
+import {createRequire} from "module";
+
+const require = createRequire(import.meta.url);
 
 function renderPlainText(invoice, plays) {
     let result = `청구 내역 (고객명: ${invoice.customer})\n`;
@@ -83,5 +84,8 @@ function statement(invoice, plays) {
     return renderPlainText(invoice, plays);
 }
 
-const result = statement(invoicesJson[0], playsJson);
-console.log(result);
+// NOTE: 예제 코드 실행을 위한 임시 구문
+const invoicesJson = require('./invoices.json');
+const playsJson = require('./plays.json');
+
+console.log(statement(invoicesJson[0], playsJson));

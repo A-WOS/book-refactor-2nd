@@ -1,6 +1,14 @@
 {
   "name": "martin-fowler-refactoring-2nd",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.1"
+  }
 }
