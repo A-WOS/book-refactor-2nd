@@ -9,9 +9,7 @@ function statement(invoice, plays) {
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`
 
     }
-    let totalAmount = appleSause();
-
-    result += `총액: ${usd(totalAmount)}\n`;
+    result += `총액: ${usd(totalAmount())}\n`;
     result += `적립 포인트: ${totalVolumeCredits()}점\n`;
     return result;
 
@@ -60,21 +58,22 @@ function statement(invoice, plays) {
     }
 
     function totalVolumeCredits() {
-        let volumeCredits = 0;
+        let result = 0;
         for (let perf of invoice.performances) {
-            volumeCredits += volumeCreditsFor(perf);
+            result += volumeCreditsFor(perf);
         }
-        return volumeCredits;
+        return result;
     }
 
-    function appleSause() {
-        let totalAmount = 0;
+    function totalAmount() {
+        let result = 0;
         for (let perf of invoice.performances) {
-            totalAmount += amountFor(perf);
+            result += amountFor(perf);
         }
+        return result;
     }
-    return totalAmount;
 }
+
 
 // NOTE: 예제 코드 실행을 위한 임시 구문
 const invoicesJson = require('./invoices.json');
