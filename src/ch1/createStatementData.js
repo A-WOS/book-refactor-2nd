@@ -3,6 +3,30 @@ class PerformanceCalculator {
     constructor(aPerformance) {
         this.performance = aPerformance;
     }
+    get amount() {
+        let result = 0;
+
+        switch (this.play.type) {
+            case "tragedy": // 비극
+                result = 40000;
+                if (this.performance.audience > 30) {
+                    result += 1000 * (this.performances.audience - 30);
+                }
+                break;
+
+            case "comedy": // 희극
+                result = 30000;
+                if (this.performances.audience > 20) {
+                    result += 10000 + 500 * (this.performance.audience - 20);
+                }
+                result += 300 * this.performances.audience;
+                break;
+
+            default:
+                throw new Error(`알 수 없는 장르: ${this.play.type}`);
+        }
+        return result;
+    }
 }
 
 export default function createStatementData(invoice, plays) {
@@ -12,19 +36,6 @@ export default function createStatementData(invoice, plays) {
     statementData.totalAmount = totalAmount(statementData);
     statementData.totalVolumeCredits = totalVolumeCredits(statementData);
     return statementData;
-
-    function enrichPerformance(aPerformance) {
-        const calculator = new PerformanceCalculator(aPerformance);
-        const result = Object.assign({}, aPerformance); // 얕은 복사 수행
-        result.play = playFor(result);
-        result.amount = amountFor(result);
-        result.volumeCredits = volumeCreditsFor(result);
-        return result;
-    }
-
-    function playFor(aPerformance) {
-        return plays[aPerformance.playID];
-    }
 
     function amountFor(aPerformance) {
         let result = 0;
@@ -49,6 +60,19 @@ export default function createStatementData(invoice, plays) {
                 throw new Error(`알 수 없는 장르: ${aPerformance.play.type}`);
         }
         return result;
+    }
+
+    function enrichPerformance(aPerformance) {
+        const calculator = new PerformanceCalculator(aPerformance);
+        const result = Object.assign({}, aPerformance); // 얕은 복사 수행
+        result.play = playFor(result);
+        result.amount = amountFor(result);
+        result.volumeCredits = volumeCreditsFor(result);
+        return result;
+    }
+
+    function playFor(aPerformance) {
+        return plays[aPerformance.playID];
     }
 
     function volumeCreditsFor(aPerformance) {
