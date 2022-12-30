@@ -6,17 +6,9 @@ export default function createStatementData(invoice, plays) {
     statementData.totalVolumeCredits = totalVolumeCredits(statementData);
     return statementData;
 
-    class PerformanceCalculator {
-        constructor(aPerformance, aPlay) {
-            this.performance = aPerformance;
-            this.play = aPlay;
-        }
-    }
-
     function enrichPerformance(aPerformance) {
-        const calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
         const result = Object.assign({}, aPerformance); // 얕은 복사 수행
-        result.play = calculator.play;
+        result.play = playFor(result);
         result.amount = amountFor(result);
         result.volumeCredits = volumeCreditsFor(result);
         return result;
@@ -51,16 +43,6 @@ export default function createStatementData(invoice, plays) {
         return result;
     }
 
-    function totalVolumeCredits(data) {
-        return data.performances
-            .reduce((total, p) => total + p.volumeCredits, 0);
-    }
-
-    function totalAmount(data) {
-        return data.performances
-            .reduce((total, p) => total + p.amount, 0);
-    }
-
     function volumeCreditsFor(aPerformance) {
         let result = 0;
 
@@ -68,5 +50,15 @@ export default function createStatementData(invoice, plays) {
         if ("comedy" === aPerformance.play.type)
             result += Math.floor(aPerformance.audience / 5);
         return result;
+    }
+
+    function totalAmount(data) {
+        return data.performances
+            .reduce((total, p) => total + p.amount, 0);
+    }
+
+    function totalVolumeCredits(data) {
+        return data.performances
+            .reduce((total, p) => total + p.volumeCredits, 0);
     }
 }
