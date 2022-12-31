@@ -2,6 +2,10 @@ import {createRequire} from "module";
 
 const require = createRequire(import.meta.url);
 
+function statement(invoice, plays) {
+    return renderPlainText(invoice, plays);
+}
+
 function renderPlainText(invoice, plays) {
     let result = `청구 내역 (고객명: ${invoice.customer})\n`;
     for (let perf of invoice.performances) {
@@ -78,10 +82,6 @@ function renderPlainText(invoice, plays) {
 
         return result;
     }
-}
-
-function statement(invoice, plays) {
-    return renderPlainText(invoice, plays);
 }
 
 // NOTE: 예제 코드 실행을 위한 임시 구문
