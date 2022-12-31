@@ -3,10 +3,11 @@ import {createRequire} from "module";
 const require = createRequire(import.meta.url);
 
 function statement(invoice, plays) {
-    return renderPlainText(invoice, plays);
+    const statementData = {};
+    return renderPlainText(statementData, invoice, plays);
 }
 
-function renderPlainText(invoice, plays) {
+function renderPlainText(data, invoice, plays) {
     let result = `청구 내역 (고객명: ${invoice.customer})\n`;
     for (let perf of invoice.performances) {
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
@@ -88,4 +89,4 @@ function renderPlainText(invoice, plays) {
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
-console.log(statement(invoicesJson[0], playsJson));
+console.log(statement(invoicesJson[0], playsJson))
