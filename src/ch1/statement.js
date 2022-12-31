@@ -66,10 +66,6 @@ function renderPlainText(data, plays) {
         return volumeCredits;
     }
 
-    function playFor(aPerformance) {
-        return plays[aPerformance.playID];
-    }
-
     function usd(aNumber) {
         return new Intl.NumberFormat(
             "en-US",
