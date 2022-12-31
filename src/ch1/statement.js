@@ -7,14 +7,14 @@ function statement(invoice, plays) {
     const statementData = {};
     statementData.customer = invoice.customer;
     statementData.performances = invoice.performances.map(enrichPerformance);
-    statementData.totalAmount = totalAmount(statementData)
-    statementData.totalVolumeCredits = totalVolumeCredits(statementData)
+    statementData.totalAmount = totalAmount(statementData);
+    statementData.totalVolumeCredits = totalVolumeCredits(statementData);
     return renderPlainText(statementData, plays);
 
     function enrichPerformance(aPerformance) {
         const result = Object.assign({}, aPerformance);
         result.play = playFor(result);
-        result.amount = amountFor(result)
+        result.amount = amountFor(result);
         result.volumeCredits = volumeCreditsFor(result);
         return result;
     }
@@ -103,8 +103,8 @@ function renderPlainText(data) {
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
-let result = statement(invoicesJson[0], playsJson)
-console.log(result)
+let result = statement(invoicesJson[0], playsJson);
+console.log(result);
 
 it('출력 결과 검사', () => {
     expect(
