@@ -16,7 +16,6 @@ function renderPlainText(data, plays) {
     result += `적립 포인트: ${(data.totalVolumeCredits)}점\n`;
 
     return result;
-
 }
 
 export function htmlStatement(invoice, plays) {
