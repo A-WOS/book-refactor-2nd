@@ -1,5 +1,5 @@
 import {createRequire} from "module";
-import {createStatementData} from "./createStatementData.js";
+import createStatementData from "./createStatementData.js";
 
 const require = createRequire(import.meta.url);
 
@@ -14,7 +14,7 @@ export function htmlStatement(invoice, plays) {
 function renderHtml(data) {
     let result = `<h1>청구 내역 (고객명: ${data.customer})</h1>\n`;
     result += "<table>\n";
-    result += "<tr><th>연극</th><th>좌석 수</th><th>금액</th></tr>";
+    result += "<tr><th>연극</th><th>좌석 수</th><th>금액</th></tr>\n";
     for (let perf of data.performances) {
         result += `  <tr><td>${perf.play.name}</td><td>(${perf.audience}석)</td>`;
         result += `<td>${usd(perf.amount)}</td></tr>\n`;
@@ -35,12 +35,13 @@ function renderPlainText(data, plays) {
 
     return result;
 
-    function usd(aNumber) {
-        return new Intl.NumberFormat(
-            "en-US",
-            {style: "currency", currency: "USD", minimumFractionDigits: 2}
-        ).format(aNumber / 100);
-    }
+}
+
+function usd(aNumber) {
+    return new Intl.NumberFormat(
+        "en-US",
+        {style: "currency", currency: "USD", minimumFractionDigits: 2}
+    ).format(aNumber / 100);
 }
 
 // NOTE: 예제 코드 실행을 위한 임시 구문
@@ -48,3 +49,4 @@ const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
 console.log(statement(invoicesJson[0], playsJson));
+console.log(htmlStatement(invoicesJson[0], playsJson));
