@@ -4,12 +4,14 @@ const require = createRequire(import.meta.url);
 
 export function statement(invoice, plays) {
     const statementData = {};
-    return renderPlainText(statementData, invoice, plays);
+    statementData.customer = invoice.customer;
+    statementData.performances = invoice.performances;
+    return renderPlainText(statementData, plays);
 }
 
-function renderPlainText(data, invoice, plays) {
-    let result = `청구 내역 (고객명: ${invoice.customer})\n`;
-    for (let perf of invoice.performances) {
+function renderPlainText(data, plays) {
+    let result = `청구 내역 (고객명: ${data.customer})\n`;
+    for (let perf of data.performances) {
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
     }
     result += `총액: ${usd(totalAmount())}\n`;
