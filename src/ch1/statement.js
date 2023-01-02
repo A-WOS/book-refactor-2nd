@@ -82,4 +82,4 @@ function renderPlainText(data, invoice, plays) {
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
-console.log(renderPlainText(invoicesJson[0], playsJson));
+console.log(statement(invoicesJson[0], playsJson));
