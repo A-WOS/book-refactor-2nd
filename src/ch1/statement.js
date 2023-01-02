@@ -3,9 +3,14 @@ import {createRequire} from "module";
 const require = createRequire(import.meta.url);
 
 export function statement(invoice, plays) {
+    const statementData = {};
+    return renderPlainText(statementData, invoice, plays);
+}
+
+function renderPlainText(data, invoice, plays) {
     let result = `청구 내역 (고객명: ${invoice.customer})\n`;
     for (let perf of invoice.performances) {
-        result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`
+        result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
     }
     result += `총액: ${usd(totalAmount())}\n`;
     result += `적립 포인트: ${(totalVolumeCredits())}점\n`;
@@ -77,4 +82,4 @@ export function statement(invoice, plays) {
 const invoicesJson = require('./invoices.json');
 const playsJson = require('./plays.json');
 
-console.log(statement(invoicesJson[0], playsJson));
+console.log(renderPlainText(invoicesJson[0], playsJson));
