@@ -1,6 +1,5 @@
-
-class Province {
-    constructor(dox) {
+export class Province {
+    constructor(doc) {
         this._name = doc.name;
         this._producers = [];
         this._totalProduction = 0;
@@ -73,7 +72,7 @@ class Producer {
     }
 }
 
-function sampleProvinceData() {
+export function sampleProvinceData() {
     return {
         name: "Asia",
         producers: [
