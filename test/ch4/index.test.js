@@ -6,7 +6,7 @@ import {Province, sampleProvinceData} from "../../src/ch4/index.js";
 
 const require = createRequire(import.meta.url);
 const assert = require('assert');
-describe('province', function() {
+describe('province', function () {
     let asia;
     beforeEach(function () {
         asia = new Province(sampleProvinceData());  // 픽스처
@@ -22,28 +22,50 @@ describe('province', function() {
         expect(asia.shortfall).equal(-6);
         expect(asia.profit).equal(292);
     });
+    it('zero demand', function () {     // 수요가 없다
+        asia.demand = 0;
+        expect(asia.shortfall).equal(-25);
+        expect(asia.profit).equal(0);
+    });
+    it('negative demand', function () {     // 수요가 마이너스다
+        asia.demand = -1;
+        expect(asia.shortfall).equal(-26);
+        expect(asia.profit).equal(-10);
+    });
     it('empty string demand', function () {     // 수요 입력란이 비어 있다
         asia.demand = "";
         expect(asia.shortfall).NaN;
         expect(asia.profit).NaN;
     });
-});
+    it('string for producers', function () {     // 생산자 수 필드에 문자열을 대입한다.
+        it(` `, function () {
+            const data = {
+                name: "String producers",
+                producers: "",
+                demand: 30,
+                price: 20
+            };
+            const prov = new Province(data);
+            expect(prov.shortfall).equal(0);
+        });
+    });
 
-describe('no producers', function() {   // 생산자가 없다.
-    let noProducers;
-    beforeEach(function () {
-        const data = {
-            name: "No producers",
-            producers: [],
-            demand: 30,
-            price: 20
-        };
-        noProducers = new Province(data);
-    });
-    it('shortfall', function () {
-        expect(noProducers.shortfall).equal(30);    // 검증
-    });
-    it('profit', function () {
-        expect(noProducers.profit).equal(0);     // 검증
+    describe('no producers', function () {   // 생산자가 없다.
+        let noProducers;
+        beforeEach(function () {
+            const data = {
+                name: "No producers",
+                producers: [],
+                demand: 30,
+                price: 20
+            };
+            noProducers = new Province(data);
+        });
+        it('shortfall', function () {
+            expect(noProducers.shortfall).equal(30);    // 검증
+        });
+        it('profit', function () {
+            expect(noProducers.profit).equal(0);     // 검증
+        });
     });
 });
