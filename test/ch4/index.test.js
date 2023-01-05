@@ -22,10 +22,10 @@ describe('province', function() {
         expect(asia.shortfall).equal(-6);
         expect(asia.profit).equal(292);
     });
-    it('negative demand', function () {     // 수요가 마이너스다
-        asia.demand = -1;
-        expect(asia.shortfall).equal(-26);
-        expect(asia.profit).equal(-10);
+    it('empty string demand', function () {     // 수요 입력란이 비어 있다
+        asia.demand = "";
+        expect(asia.shortfall).NaN;
+        expect(asia.profit).NaN;
     });
 });
 
