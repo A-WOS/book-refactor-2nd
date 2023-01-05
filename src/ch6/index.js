@@ -2,22 +2,18 @@ function printOwing(invoice) {
 
     printBanner();
 
-    // 미해결 채무(outstanding)을 계산한다.
-    let outstanding = 0;
-    for (const o of invoice.orders) {
-        outstanding += o.amount;
-    }
+    const outstanding = calculateOutstanding(invoice);    // 함수 추출 완료, 추출한 함수가 반환한 값을 원래 변수에 저장
 
     recordDueDate(invoice); // 마감일 설정 로직을 함수로 추출
     printDetails(invoice, outstanding); // 지역 변수를 매개변수로 전달
+}
 
-    function calculateOutstanding(invoice) {
-        let outstanding = 0;    // 추출할 코드 복사
-        for (const o of invoice.orders) {
-            outstanding += o.amount;
-        }
+function calculateOutstanding(invoice) {
+    let result = 0;    // 추출할 코드 복사
+    for (const o of invoice.orders) {
+        result += o.amount;
     }
-    return outstanding  // 수정된 값 반환
+    return result  // 수정된 값 반환
 }
 
 function printBanner() {
