@@ -18,10 +18,29 @@ class Province {
     get price() {return this._price;}
     set price(arg) {return this._price = parseInt(arg);}    // 숫자로 파싱해서 저장
 
-
     addProducer(arg) {
         this._producers.push(arg);
         this._totalProduction += arg.production;
+    }
+}
+
+class Producer {
+    constructor(aProvince, data) {
+        this._province = aProvince;
+        this._cost = data.cost;
+        this._name = data.name;
+        this._production = data.production || 0;
+    }
+    get name() {return this._name;}
+    get cost() {return this._cost;}
+    set cost(arg) {return this._parseInt(arg);}
+
+    get production() {return this._production;}
+    set production(amountStr) {
+        const amount = parseInt(amountStr);
+        const newProduction = Number.isNaN(amount) ? 0 : amount;
+        this._province.totalProduction += newProduction - this._production;
+        this._production = newProduction;
     }
 }
 
