@@ -23,7 +23,7 @@ export class Province {
     set price(arg) {this._price = parseInt(arg);}       // 숫자로 파싱해서 저장
 
     get shortfall() {
-        return this.demand - this.totalProduction * 2;
+        return this.demand - this.totalProduction;
     }
     get profit() {
         return this.demandValue - this.demandCost;
