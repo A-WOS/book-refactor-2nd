@@ -5,21 +5,24 @@ import {Province, sampleProvinceData} from "../../src/ch4/province.js";
 const require = createRequire(import.meta.url);
 const assert = require('assert');
 
-describe('province', function () {
+describe('asseert_province', function () {
     it('shortfall', function () {
         const asia = new Province(sampleProvinceData());
         assert.equal(asia.shortfall, 5);
     })
 })
 
-describe('province', function () {
+describe('chai_province', function () {
+    let asia;
+    beforeEach(function () {
+        asia = new Province(sampleProvinceData())
+    });
+
     it('shortfall', function () {
-        const asia = new Province(sampleProvinceData());
         expect(asia.shortfall).equal(5);
-    })
+    });
 
     it('profit', function () {
-        const asia = new Province(sampleProvinceData());
         expect(asia.profit).equal(230);
-    })
+    });
 })
