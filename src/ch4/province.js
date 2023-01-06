@@ -44,7 +44,7 @@ class Province {
         this.producers
             .sort((a,b) => a.cost - b.cost)
             .forEach(p => {
-                const contribution = Math.min(remainingDemand. p.production);
+                const contribution = Math.min(remainingDemand, p.production);
                 remainingDemand -= contribution;
                 result += contribution * p.cost;
             });
