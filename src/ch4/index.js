@@ -71,7 +71,7 @@ export class Province {
 
     addProducer(arg) {
         this._producers.push(arg);
-        this._totalProduction += arg.totalProduction;
+        this._totalProduction += arg.production;
     }
 
 }
