@@ -40,6 +40,10 @@ class Province {
         this._price = parseInt(arg); // 숫자로 파싱해서 저장
     }
 
+    get shortfall() {
+        return this._demand - this.totalProduction;
+    }
+
     addProducer(arg) {
         this._producers.push(arg);
         this._totalProduction += arg.totalProduction;
