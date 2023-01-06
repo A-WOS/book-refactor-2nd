@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive 'test/**/*.test.js'"
   },
   "dependencies": {
     "chai": "^4.3.7",
