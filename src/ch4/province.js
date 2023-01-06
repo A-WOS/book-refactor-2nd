@@ -85,3 +85,5 @@ class Producer {
         this._production = newProduction;
     }
 }
+
+export {Province, Producer, sampleProvinceData}
