@@ -21,15 +21,15 @@ public class SplitPhase {
         if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
 
         CommandLine commandLine = new CommandLine();
-        String filename = args[args.length - 1];
 
+        commandLine.filename = args[args.length - 1];
         commandLine.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
 
-        return countOrders(commandLine, args, filename);
+        return countOrders(commandLine, args);
     }
 
-    private static long countOrders(CommandLine commandLine, String[] args, String filename) throws IOException {
-        File input = Paths.get(filename).toFile();
+    private static long countOrders(CommandLine commandLine, String[] args) throws IOException {
+        File input = Paths.get(commandLine.filename).toFile();
         ObjectMapper mapper = new ObjectMapper();
         Order[] orders = mapper.readValue(input, Order[].class);
 
@@ -42,6 +42,7 @@ public class SplitPhase {
     }
 
     private static class CommandLine {
+        public String filename;
         boolean onlyCountReady;
     }
 }
