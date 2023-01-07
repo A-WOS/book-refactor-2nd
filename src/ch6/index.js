@@ -39,10 +39,6 @@ function getRating(driver) {
 }
 
 function rating(aDriver) {
-    return numberOfLateDeliveries(aDriver) ? 2 : 1;
-}
-
-function numberOfLateDeliveries(aDriver) {
-    return aDriver.numberOfLateDeliveries > 5;
+    return aDriver.numberOfLateDeliveries > 5 ? 2 : 1;
 }
 
