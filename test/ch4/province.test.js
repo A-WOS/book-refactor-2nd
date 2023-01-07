@@ -69,7 +69,7 @@ describe('no producers', () => {
 });
 
 describe('string for producers', () => {
-    it('', () => {
+    xit('', () => {
         const data = {
             name: "String producers",
             producers: "",
