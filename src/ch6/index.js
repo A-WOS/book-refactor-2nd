@@ -2,11 +2,7 @@ function printOwing(invoice) {
     printBanner();
 
     // 미해결 채무(outstanding) 를 계산한다.
-    let outstanding = 0;
-    for (const o of invoice.orders) {
-        outstanding += o.amount;
-    }
-
+    let outstanding = calculateOutstanding(invoice);
     recordDueDate(invoice);
     printDetails(invoice, outstanding);
 
