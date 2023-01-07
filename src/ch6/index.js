@@ -8,11 +8,7 @@ function printOwing(invoice) {
         outstanding += o.amount;
     }
 
-    // 마감일(dueData)을 기록한다.
-    const today = Clock.today;
-    invoice.dueDate = new Data(today.getFullYear(), today.getMonth(),
-        today.getDate() + 30);
-
+    recordDueDate(invoice);
     printDetails(invoice, outstanding);
 
     function printBanner() {
@@ -28,4 +24,11 @@ function printDetails(invoice, outstanding) {
     console.log(`고객명: ${invoice.customer}`);
     console.log(`채무액: ${outstanding}`);
     console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
+}
+
+function recordDueDate(invoice) {
+    // 마감일(dueData)을 기록한다.
+    const today = Clock.today;
+    invoice.dueDate = new Data(today.getFullYear(), today.getMonth(),
+        today.getDate() + 30);
 }
