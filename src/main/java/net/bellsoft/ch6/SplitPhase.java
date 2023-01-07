@@ -18,14 +18,18 @@ public class SplitPhase {
     }
 
     static long run(String[] args) throws IOException {
+        return countOrders(parseCommandLine(args), args);
+    }
+
+    private static CommandLine parseCommandLine(String[] args) {
         if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
 
-        CommandLine commandLine = new CommandLine();
+        CommandLine result = new CommandLine();
 
-        commandLine.filename = args[args.length - 1];
-        commandLine.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
+        result.filename = args[args.length - 1];
+        result.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
 
-        return countOrders(commandLine, args);
+        return result;
     }
 
     private static long countOrders(CommandLine commandLine, String[] args) throws IOException {
