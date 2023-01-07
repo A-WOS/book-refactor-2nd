@@ -38,4 +38,11 @@ function getRating(driver) {
     return (driver.numberOfLateDeliveries > 5) ? 2 : 1;
 }
 
+function rating(aDriver) {
+    return numberOfLateDeliveries(aDriver) ? 2 : 1;
+}
+
+function numberOfLateDeliveries(aDriver) {
+    return aDriver.numberOfLateDeliveries > 5;
+}
 
