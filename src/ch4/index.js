@@ -46,8 +46,8 @@ export class Province {
     }
 
     get profit() {
-        // return this.demandValue - this.demandCost;
-        return this.demandValue - this.demandCost * 2; // 오류를 발생시키기 위한 코드
+        return this.demandValue - this.demandCost;
+        // return this.demandValue - this.demandCost * 2; // 오류를 발생시키기 위한 코드
     }
 
     get demandValue() {
