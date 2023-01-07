@@ -62,4 +62,15 @@ describe('no producers', function () {
     })
 })
 
-
+describe('string for producers', function() {
+    it('', function() {
+        const data = {
+            name: "String Producers",
+            producers: "",
+            demand: 30,
+            price: 20
+        };
+        const prov = new Province(data);
+        expect(prov.shortfall).equal(0);
+    })
+})
