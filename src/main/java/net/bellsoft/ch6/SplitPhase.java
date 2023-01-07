@@ -29,5 +29,7 @@ public class SplitPhase {
             System.out.println(Stream.of(orders)
                     .filter(o -> "ready".equals(o.status))
                     .count());
+        else
+            System.out.println(orders.length);
     }
 }
