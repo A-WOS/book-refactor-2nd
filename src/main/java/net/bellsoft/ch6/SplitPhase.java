@@ -30,8 +30,9 @@ public class SplitPhase {
         File input = Paths.get(filename).toFile();
         ObjectMapper mapper = new ObjectMapper();
         Order[] orders = mapper.readValue(input, Order[].class);
+        commandLine.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
 
-        if (Stream.of(args).anyMatch(arg -> "-r".equals(arg)))
+        if (commandLine.onlyCountReady)
             return Stream.of(orders)
                     .filter(o -> "ready".equals(o.status))
                     .count();
@@ -40,5 +41,6 @@ public class SplitPhase {
     }
 
     private static class CommandLine {
+        boolean onlyCountReady;
     }
 }
