@@ -52,9 +52,9 @@ export class Province {
     get totalProduction() {return this._totalProduction}
     set totalProduction(arg) {this._totalProduction = arg}
     get demand() {return this._demand;}
-    set demand(arg) {this._demand = arg}
+    set demand(arg) {this._demand = parseInt(arg)}
     get price() {return this._price;}
-    set price(arg) {this._price = arg}
+    set price(arg) {this._price = parseInt(arg)}
 
     get shortfall() {
         return this._demand - this.totalProduction;
