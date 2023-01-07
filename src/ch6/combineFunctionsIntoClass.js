@@ -25,10 +25,20 @@ export class Reading {
     get baseCharge() {
         return baseRate(this.month, this.year) * this.quantity;
     }
+
+    get taxableCharge() {
+        return Math.max(0, this.baseCharge - taxThreshold(this.year));
+    }
 }
 
 function baseRate(month, year) {
     if (year === 2017 && month === 5) return 0.1;
 
     return 0.2;
+}
+
+function taxThreshold(year) {
+    if (year === 2017) return 1;
+
+    return 2;
 }
