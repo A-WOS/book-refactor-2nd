@@ -1,7 +1,7 @@
 class Order {
     constructor(aRecord) {
         this._data = aRecord;
-        }
+    }
 
     get quantity() {return this._data.quantity;}
     get itemPrice() {return this._data.itemPrice;}
