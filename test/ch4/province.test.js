@@ -9,13 +9,13 @@ describe('asseert_province', function () {
     it('shortfall', function () {
         const asia = new Province(sampleProvinceData());
         assert.equal(asia.shortfall, 5);
-    })
-})
+    });
+});
 
 describe('chai_province', function () {
     let asia;
     beforeEach(function () {
-        asia = new Province(sampleProvinceData())
+        asia = new Province(sampleProvinceData());
     });
 
     it('shortfall', function () {
@@ -43,7 +43,7 @@ describe('chai_province', function () {
         expect(asia.shortfall).equal(-26);
         expect(asia.profit).equal(-10);
     });
-})
+});
 
 describe('no producers', function () {
     let noProducers;
