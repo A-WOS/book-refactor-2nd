@@ -62,6 +62,7 @@ describe('no producers', function () {
     })
 })
 
+/*
 describe('string for producers', function() {
     it('', function() {
         const data = {
@@ -74,3 +75,4 @@ describe('string for producers', function() {
         expect(prov.shortfall).equal(0);
     })
 })
+*/

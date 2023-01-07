@@ -1,14 +1,16 @@
-function printOwing(invoice) {
-    printBanner();
+export function printOwing(invoice) {
+    const logData = [];
+    logData.push(printBanner());
     const outstanding = calculateOutstanding(invoice);
     recordDueDate(invoice);
-    printDetails(invoice, outstanding);
+    logData.push(printDetails(invoice, outstanding));
+    return logData.join('');
 }
 
 function printBanner() {
-    console.log("******************");
-    console.log("**** 고객 채무 ****");
-    console.log("******************");
+    return printLog("******************") +
+        printLog("**** 고객 채무 ****") +
+        printLog("******************");
 }
 
 function calculateOutstanding(invoice) {
@@ -26,11 +28,17 @@ function recordDueDate(invoice) {
 }
 
 function printDetails(invoice, outstanding) {
-    console.log(`고객명: ${invoice.customer}`);
-    console.log(`채무액: ${outstanding}`);
-    console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
+    return printLog(`고객명: ${invoice.customer}`) +
+        printLog(`채무액: ${outstanding}`) +
+        printLog(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
 }
 
 class Clock {
-    static get today() { return Date.now();}
+    static get today() {
+        return new Date();
+    }
+}
+
+function printLog(text) {
+    return text + '\n';
 }
