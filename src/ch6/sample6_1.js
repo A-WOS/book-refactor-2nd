@@ -15,12 +15,12 @@ function printOwing(invoice) {
         today.getDate() + 30);
 
     printDetails(invoice, outstanding);
+}
 
-    function printBanner() {
-        console.log("**************");
-        console.log("*** 고객 채무 ***");
-        console.log("**************");
-    }
+function printBanner() {
+    console.log("**************");
+    console.log("*** 고객 채무 ***");
+    console.log("**************");
 }
 
 function printDetails(invoice, outstanding) {
