@@ -9,9 +9,9 @@ export const station = {
     ],
 };
 
-export function readingOutsideRange(station, min, max, range) {
+export function readingOutsideRange(station, range) {
     return station.readings
-        .filter(r => r.temp < min || r.temp > max);
+        .filter(r => r.temp < range.min || r.temp > range.max);
 }
 
 export class NumberRange {
