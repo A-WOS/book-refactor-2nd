@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {Province, sampleProvinceData} from "../src/ch4/index.js";
+import {Province, sampleProvinceData} from "../../src/ch4/index.js";
 
 describe('province', function () {
     let asia;
