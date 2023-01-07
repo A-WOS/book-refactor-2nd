@@ -12,9 +12,13 @@ class Order {
     }
 
     get price() {
-        return order.quantity * order.itemPrice -
+        return this.basePrice -
             Math.max(0, order.quantity - 500) * order.itemPrice * 0.05 +
-            Math.min(order.quantity * order.itemPrice * 0.1, 100);
+            Math.min(this.basePrice * 0.1, 100);
+    }
+
+    get basePrice() {
+        return this.quantity * this.itemPrice;
     }
 }
 
