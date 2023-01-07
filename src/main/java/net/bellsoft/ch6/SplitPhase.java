@@ -18,26 +18,15 @@ public class SplitPhase {
     }
 
     static long run(String[] args) throws IOException {
-        return countOrders(parseCommandLine(args), args);
+        return countOrders(new CommandLine(args));
     }
 
-    private static CommandLine parseCommandLine(String[] args) {
-        if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
-
-        CommandLine result = new CommandLine();
-
-        result.filename = args[args.length - 1];
-        result.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
-
-        return result;
-    }
-
-    private static long countOrders(CommandLine commandLine, String[] args) throws IOException {
-        File input = Paths.get(commandLine.filename).toFile();
+    private static long countOrders(CommandLine commandLine) throws IOException {
+        File input = Paths.get(commandLine.filename()).toFile();
         ObjectMapper mapper = new ObjectMapper();
         Order[] orders = mapper.readValue(input, Order[].class);
 
-        if (commandLine.onlyCountReady)
+        if (commandLine.onlyCountReady())
             return Stream.of(orders)
                     .filter(o -> "ready".equals(o.status))
                     .count();
@@ -46,7 +35,20 @@ public class SplitPhase {
     }
 
     private static class CommandLine {
-        public String filename;
-        boolean onlyCountReady;
+        private String[] args;
+
+        public CommandLine(String[] args) {
+            this.args = args;
+
+            if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
+        }
+
+        public String filename() {
+            return args[args.length - 1];
+        }
+
+        public boolean onlyCountReady() {
+            return Stream.of(args).anyMatch(arg -> "-r".equals(arg));
+        }
     }
 }
