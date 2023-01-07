@@ -33,3 +33,13 @@ function recordDueDate(invoice) {
     invoice.dueDate = new Date(today.getFullYear(), today.getMonth(),
         today.getDate() + 30);
 }
+
+function getRating(driver) {
+    return moreThanFiveLateDeliveries(driver) ? 2 : 1;
+}
+
+function moreThanFiveLateDeliveries(driver) {
+    return driver.numberOfLateDeliveries > 5;
+}
+
+
