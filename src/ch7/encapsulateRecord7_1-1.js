@@ -1,6 +1,7 @@
 const organization = {name: "애크미 구스베리", country: "GB"};
+function getRawDataOfOrganization() {return organization;}
 
 /*
-result += `<h1>${organization.name}</h1>`;  //읽기 예
-organization.name = newName;                //쓰기 예
+result += `<h1>${getRawDataOfOrganization().name}</h1>`;  //읽기 예
+getRawDataOfOrganization().name = newName;                //쓰기 예
  */
