@@ -7,7 +7,6 @@ class Organization {
     get name() {return this._data.name;}
 }
 const organization = new Organization({name: "애크미 구스베리", country: "GB"});
-function getRawDataOfOrganization() {return organization._data;}
 function getOrganization() {return organization;}
 
 
