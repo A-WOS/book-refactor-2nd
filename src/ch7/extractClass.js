@@ -50,6 +50,10 @@ class TelephoneNumber {
     }
 
     get telephoneNumber() {
+        return this.toString();
+    }
+
+    toString() {
         return `${this.areaCode} ${this.number}`;
     }
 }
