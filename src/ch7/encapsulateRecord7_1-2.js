@@ -1,7 +1,19 @@
-customerData[customerID].usages[year][month] = amount;
+class CustomerData {
+    constructor(data) {
+        this._data = data;
+    }
+}
+
+function getCustomerData() {return customerData;}
+function getRawDataOfCustomers() {return customerData._data;}
+function setRawDataOfCustomers(arg) {customerData = new CustomerData(arg);}
+
+
+getRawDataOfCustomers()[customerID].usages[year][month] = amount;
 
 function compareUsage(customerID), laterYear, month) {
-    const later = customerData[customerID].usages[laterYear][month];
-    const earlier = customerData[cutmoerID].usages[laterYear - 1][month];
+    const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
+    const earlier = getRawDataOfCustomers()[cutmoerID].usages[laterYear - 1][month];
     return {laterAmonut: later, change: later - earlier};
 }
+
