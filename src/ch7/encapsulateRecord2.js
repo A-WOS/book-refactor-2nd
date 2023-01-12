@@ -1,4 +1,10 @@
-let customerData = {
+class CustomerData {
+    constructor(data) {
+        this._data = data;
+    }
+}
+
+let customerData = new CustomerData({
     "1920": {
         name: "마틴 파울러",
         id: "1920",
@@ -29,12 +35,16 @@ let customerData = {
             },
         },
     }
-}
+});
 
-function getRawDataOfCustomers() {
+export function getCustomerData() {
     return customerData;
 }
 
-function setRawDataOfCustomers(arg) {
-    customerData = arg;
+export function getRawDataOfCustomers() {
+    return customerData._data;
+}
+
+export function setRawDataOfCustomers(arg) {
+    customerData = new CustomerData(arg);
 }
