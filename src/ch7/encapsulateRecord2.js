@@ -1,6 +1,16 @@
+import _ from 'lodash';
+
 class CustomerData {
     constructor(data) {
         this._data = data;
+    }
+
+    get rawData() {
+        return _.cloneDeep(this._data);
+    }
+
+    usage(customerID, year, month) {
+        return this._data[customerID].usages[year][month];
     }
 }
 
