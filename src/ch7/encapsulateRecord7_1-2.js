@@ -14,7 +14,7 @@ function setRawDataOfCustomers(arg) {customerData = new CustomerData(arg);}
 
 getCustomerData().setUsage(customerID, year, month, amount);
 
-function compareUsage(customerID), laterYear, month) {
+function compareUsage(customerID, laterYear, month) {
     const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
     const earlier = getRawDataOfCustomers()[cutmoerID].usages[laterYear - 1][month];
     return {laterAmonut: later, change: later - earlier};
