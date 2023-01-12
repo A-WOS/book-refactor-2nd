@@ -33,4 +33,27 @@ describe('Person 클래스에', () => {
 
         expect(aPerson.courses).to.eql([new Course("Spring", false)]);
     });
+
+    it('set 된 courses 를 변경할 수 없다.', () => {
+        const aPerson = new Person("Bell");
+        const courses = [new Course("Kotlin", true)];
+
+        aPerson.courses = courses;
+
+        courses.push(new Course("Spring", true));
+
+        expect(aPerson.courses).to.eql([new Course("Kotlin", true)]);
+    });
+
+    it('가져온 courses 가 변경되어도 원본 데이터는 변경되지 않는다.', () => {
+        const aPerson = new Person("Bell");
+
+        aPerson.courses = [new Course("Kotlin", true)];
+
+        const coursesByGetter = aPerson.courses;
+
+        coursesByGetter.push(new Course("Spring", true));
+
+        expect(aPerson.courses).to.eql([new Course("Kotlin", true)]);
+    });
 });
