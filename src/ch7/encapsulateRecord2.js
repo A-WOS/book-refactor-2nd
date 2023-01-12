@@ -50,11 +50,3 @@ let customerData = new CustomerData({
 export function getCustomerData() {
     return customerData;
 }
-
-export function getRawDataOfCustomers() {
-    return customerData._data;
-}
-
-export function setRawDataOfCustomers(arg) {
-    customerData = new CustomerData(arg);
-}
