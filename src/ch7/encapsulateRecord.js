@@ -22,10 +22,6 @@ export class Organization {
 
 const organization = new Organization({name: "애크미 구스베리", country: "GB"});
 
-export function getRawDataOfOrganization() {
-    return organization._data;
-}
-
 export function getOrganization() {
     return organization;
 }
