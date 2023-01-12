@@ -1,4 +1,8 @@
 class Person {
+    constructor() {
+        this._telephoneNumber = new TelephoneNumber();
+    }
+
     get name() {
         return this._name;
     }
@@ -26,4 +30,8 @@ class Person {
     set officeNumber(arg) {
         this._officeNumber = arg;
     }
+}
+
+class TelephoneNumber {
+
 }
