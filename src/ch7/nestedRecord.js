@@ -13,13 +13,10 @@ class CustomerData {
 }
 
 function getCustomerData() { return customerData;}
-function getRawDataOfCustomers() { return customerData.rawData; }
-function setRawDataOfCustomers(arg) { customerData = new CustomerData(arg);}
-
 getCustomerData().setUsage(customerID, year, month, amount);
 
 function compareUsage(customerID, laterYear, month) {
-    const later = getCustomerData().usage(customerID, laterYear, month);
-    const earlier = getCustomerData().usage(customerID, laterYear - 1, month);
+    const later = getCustomerData().rawData.usage(customerID, laterYear, month);
+    const earlier = getCustomerData().rawData.usage(customerID, laterYear - 1, month);
     return {laterAmount: later, change: later - earlier};
 }
