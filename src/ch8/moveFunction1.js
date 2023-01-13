@@ -1,4 +1,4 @@
-function trackSummery(points) {
+export function trackSummary(points) {
     const totalTime = calculateTime();
     const totalDistance = calculateDistance();
     const pace = totalTime / 60 / totalDistance;
