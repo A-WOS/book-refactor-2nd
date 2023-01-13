@@ -6,10 +6,14 @@ class CustomerData {
     setUsage(customerID, year, month, amount) {
         this._data[customerID].usages[year][month] = amount;
     }
+
+    get rawData() {
+        return _.cloneDeep(this._data);
+    }
 }
 
 function getCustomerData() {return customerData;}
-function getRawDataOfCustomers() {return customerData._data;}
+function getRawDataOfCustomers() {return customerData.rawData;}
 function setRawDataOfCustomers(arg) {customerData = new CustomerData(arg);}
 
 getCustomerData().setUsage(customerID, year, month, amount);
