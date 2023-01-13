@@ -3,13 +3,14 @@ class CustomerData {
         this._data = data;
     }
 
+    get rawData() { return _.cloneDeep(this._data); }
     setUsage(customerID, year, month, amount) {
         this._data[customerID].usages[year][month] = amount;
     }
 }
 
 function getCustomerData() { return customerData;}
-function getRawDataOfCustomers() { return customerData._data; }
+function getRawDataOfCustomers() { return customerData.rawData; }
 function setRawDataOfCustomers(arg) { customerData = new CustomerData(arg);}
 
 getCustomerData().setUsage(customerID, year, month, amount);
