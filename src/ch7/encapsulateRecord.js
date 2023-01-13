@@ -1,8 +1,15 @@
-const organization = {name: "Awos", country: "Korea"};
+class Organization {
+    constructor(data) {
+        this._data = data;
+    }
+}
 
-
-function getRawDataOrganization() { return organization; }
+const organization = new Organization({name: "Awos", country: "Korea"});
+function getRawDataOrganization() { return organization._data; }
+function getOrganization() { return organization; }
 
 let result = "";
 result += `<h1>${getRawDataOrganization().name}</h1>`; // 읽기 예
 getRawDataOrganization().name = "AWS"; // 쓰기 예
+
+console.log(getOrganization()._data);
