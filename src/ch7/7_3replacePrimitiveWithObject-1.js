@@ -1,4 +1,4 @@
-class Order {
+export class Order {
     constructor(data) {
         this._pirority = data.priority;
     }
@@ -7,11 +7,13 @@ class Order {
     set priority(aString)   {this._pirority = aString;}
 }
 
+class Priority {
+    constructor(value) {
+        this._value = value;
+    }
 
-
-
-
-
+    toString() {return this._value;}
+}
 
 
 // 클라이언트
