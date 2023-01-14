@@ -6,6 +6,7 @@ class Person {
     get name() {return this._name;}
     get department() {return this._department;}
     set department(arg) {this._department = arg;}
+    get manger() {return this._department.manger;}
 }
 
 class Department {
@@ -16,5 +17,5 @@ class Department {
 }
 
 /* 클라이언트
-manger = aPerson.department.manger;
+manger = aPerson.manger;
  */
