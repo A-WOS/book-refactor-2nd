@@ -1,4 +1,4 @@
-manager = aPerson.manager;
+manager = aPerson.department.manager;
 
 class Person {
     get manager() {return this._department.manager;}
