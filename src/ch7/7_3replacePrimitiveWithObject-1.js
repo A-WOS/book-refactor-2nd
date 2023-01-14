@@ -3,8 +3,8 @@ export class Order {
         this._pirority = data.priority;
     }
 
-    get priority()  {return this._priority;}
-    set priority(aString)   {this._pirority = aString;}
+    get priority()  {return this._priority.toString();}
+    set priority(aString)   {this._pirority = new Priority(aString);}
 }
 
 class Priority {
