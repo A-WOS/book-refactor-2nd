@@ -16,9 +16,10 @@ class Shipment {
     set trackigInformation(aTrackingInformation) {
         this._trackingInformation = aTrackingInformation;
     }
+    set shippingCompany(arg) {this._trackingInformation.shippingCompany = arg;}
 }
 
 /* 클라이언트
-aShipment.trackingInformation.shippingCompany = request.vendor;
+aShipment.shippingCompany = request.vendor;
  */
 
