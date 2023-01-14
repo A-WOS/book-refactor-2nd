@@ -6,16 +6,16 @@ class Person {
     get name() {return this._name;}
     get department() {return this._department;}
     set department(arg) {this._department = arg;}
-    get manger() {return this._department.manger;}
+    get manger() {return this._department.manager;}
 }
 
 class Department {
     get changeCode() {return this._chargeCode;}
-    set chargeCode(arg) {this._chargeCode = arg;}
-    get manger() {return this._manger;}
+    set changeCode(arg) {this._chargeCode = arg;}
+    get manager() {return this._manger;}
     set manager(arg) {this._manger = arg;}
 }
 
 /* 클라이언트
-manger = aPerson.manger;
+manager = aPerson.manager;
  */
