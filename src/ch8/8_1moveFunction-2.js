@@ -1,12 +1,8 @@
 class Account {
     get bankCharge() {
         let result = 4.5;
-        if (this._daysOverdrawn > 0) result += this.overdraftCharge;
+        if (this._daysOverdrawn > 0) result += this.type.type.overdraftCharge(this.type.daysOverdrawn);
         return result;
-    }
-
-    get overdraftCharge() {
-        return this.type.overdraftCharge(this.daysOverdrawn);
     }
 }
 
