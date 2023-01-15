@@ -6,12 +6,15 @@ function youngestAge() {
     return youngest;
 }
 
-function youngestSalary() {
-    let youngest = youngestAge();
+function totalSalary() {
     let totalSalary = 0;
     for (const p of people) {
         totalSalary += p.salary;
     }
+    return totalSalary;
+}
 
-    return `최연소: ${youngest}, 총 급여: ${totalSalary}`;
+function youngestSalary() {
+    let youngest = youngestAge();
+    return `최연소: ${youngest}, 총 급여: ${(totalSalary())}`;
 }
