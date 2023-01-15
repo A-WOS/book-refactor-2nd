@@ -10,8 +10,7 @@ function renderPerson(outStream, person) {
 function photoDiv(p) {
     return [
         "<div>",
-        `<p>제목: ${p.title}</p>`,
-        emitPhotoData(p),
+        zznew(p),
         "</div>",
     ].join("\n");
 }
@@ -21,4 +20,11 @@ function emitPhotoData(aPhoto) {
     result.push(`<p>위치: ${aPhoto.location}</p>`);
     result.push(`<p>날짜: ${aPhoto.data.toDateString()}</p>`);
     return result.join("\n");
+}
+
+function zznew(p) {
+    return [
+        `<p>제목: ${p.title}</p>`,
+        emitPhotoData(p),
+    ].join("\n");
 }
