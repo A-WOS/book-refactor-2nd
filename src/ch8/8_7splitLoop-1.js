@@ -15,6 +15,5 @@ function totalSalary() {
 }
 
 function youngestSalary() {
-    let youngest = youngestAge();
-    return `최연소: ${youngest}, 총 급여: ${(totalSalary())}`;
+    return `최연소: ${(youngestAge())}, 총 급여: ${(totalSalary())}`;
 }
