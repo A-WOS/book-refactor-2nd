@@ -5,6 +5,10 @@ function youngestSalary() {
         if (p.age < youngest) youngest = p.age;
         totalSalary += p.salary;
     }
+    for (const p of people) {
+        if (p.age < youngest) youngest = p.age;
+        totalSalary += p.salary;
+    }
 
     return `최연소: ${youngest}, 총 급여: ${totalSalary}`;
 }
