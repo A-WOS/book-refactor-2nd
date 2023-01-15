@@ -14,16 +14,10 @@ function photoDiv(p) {
     ].join("\n");
 }
 
-function emitPhotoData(aPhoto) {
-    const result = [];
-    result.push(`<p>위치: ${aPhoto.location}</p>`);
-    result.push(`<p>날짜: ${aPhoto.data.toDateString()}</p>`);
-    return result.join("\n");
-}
-
-function zznew(p) {
+function zznew(aPhoto) {
     return [
-        `<p>제목: ${p.title}</p>`,
-        emitPhotoData(p),
+        `<p>제목: ${aPhoto.title}</p>`,
+        `<p>위치: ${aPhoto.location}</p>`,
+        `<p>날짜: ${aPhoto.data.toDateString()}</p>`,
     ].join("\n");
 }
