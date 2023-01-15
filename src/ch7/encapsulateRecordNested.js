@@ -21,3 +21,15 @@ let customerData = {
         // 다른 고객 정보도 같은 형식으로 저장된다.
     }
 }
+
+// Example for write data
+function setCustomerDataExample(customerID, year, month, amount) {
+    customerData[customerID].usages[year][month] = amount;
+}
+
+// Example for read data
+function compareUsage(customerID, laterYear, month) {
+    const later = customerData[customerID].usages[laterYear][month];
+    const earlier = customerData[customerID].usages[laterYear - 1][month];
+    return {laterAmount: later, change: later - earlier};
+}
