@@ -10,7 +10,7 @@ function getRawDataOfOrganization() {return organization._data;}
 function getOrganization() {return organization;}
 
 function getNameOfOrganization() {
-    return organization._data;
+    return organization._data.name;
 }
 
 function setNameOfOrganization(newName) {
