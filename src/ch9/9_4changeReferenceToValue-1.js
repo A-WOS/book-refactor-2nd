@@ -4,7 +4,9 @@ class Person {
     }
 
     get officeAreaCode() {return this._telephoneNumber.areaCode;}
-    set officeAreaCode(arg) {this._telephoneNumber.areaCode = arg;}
+    set officeAreaCode(arg) {
+        this._telephoneNumber = new TelephoneNumber(arg, this.officeNumber);
+    }
     get officeNumber() {return this._telephoneNumber.number;}
     set officeNumber(arg) {this._number = arg;}
 }
