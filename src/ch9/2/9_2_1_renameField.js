@@ -1,6 +1,6 @@
 class Organization {
     constructor(data) {
-        this._title = data.name;
+        this._title = (data.title !== undefined) ? data.title : data.name;
         this._country = data.country;
     }
 
@@ -10,4 +10,7 @@ class Organization {
     set country(aCountryCode) { this._country = aCountryCode; }
 }
 
-const organization =  new Organization({name: "애크미 구스베리", country: "GB"});
+// const organization =  new Organization({name: "애크미 구스베리", country: "GB"});
+const organization =  new Organization({title: "애크미 구스베리", country: "GB"});
+
+console.log(organization)
