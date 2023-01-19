@@ -1,4 +1,4 @@
-function rating(voyage, history) {
+export function rating(voyage, history) {
     const vpf = voyageProfitFactor(voyage, history);
     const vr = voyageRisk(voyage);
     const chr = captainHistoryRisk(voyage, history);
