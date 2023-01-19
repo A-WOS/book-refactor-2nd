@@ -20,7 +20,14 @@ function isUnknown(arg) {
 
 class UnKnownCustomer {
     get name() {return "거주자";}
+    get billingPlan() {return registry.billingPlans.basic;}
+    set billingPlan(arg) {}
     get isUnknown() {return true;}
+    get paymentHistory() {return new NullPaymentHistory();}
+}
+
+class NullPaymentHistory {
+    get weekDelinquentInLastYear() {return 0;}
 }
 
 // 클라이언트1
@@ -36,6 +43,4 @@ const Plan = (isUnknown(aCustomer)) ?
 if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
 
 // 클라이언트4
-const weekDelinquent =  isUnknown(aCustomer) ?
-    0
-    : aCustomer.paymentHistory.weekDelinquentInLastYear;
+const weekDelinquent = aCustomer.paymentHistory.weekDelinquentInLastYear;
