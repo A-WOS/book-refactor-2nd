@@ -27,14 +27,14 @@ if (isUnknown(aCustomer)) customerName = "거주자";
 else customerName = aCustomerName;
 
 // 클라이언트2
-const Plan = (aCustomer === "미확인 고객") ?
+const Plan = (isUnknown(aCustomer)) ?
     registry.billingPlans.basic
     : aCustomer.billingPlan;
 
 // 클라이언트3
-if (aCustomer !== "미확인 고객") aCustomer.billingPlan = newPlan;
+if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
 
 // 클라이언트4
-const weekDelinquent =  (aCustomer === "미확인 고객") ?
+const weekDelinquent =  isUnknown(aCustomer) ?
     0
     : aCustomer.paymentHistory.weekDelinquentInLastYear;
