@@ -35,15 +35,15 @@ const aCustomer = site.customer;
 const customerName = aCustomer.name;
 
 // 클라이언트2
-const Plan = (isUnknown(aCustomer)) ?
+const Plan = aCustomer.isUnknown ?
     registry.billingPlans.basic
     : aCustomer.billingPlan;
 
 // 클라이언트3
-if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
+if (!aCustomer.isUnknown) aCustomer.billingPlan = newPlan;
 
 // 클라이언트4
 const weekDelinquent = aCustomer.paymentHistory.weekDelinquentInLastYear;
 
 // 튀는 클라이언트
-const name = !isUnknown(aCustomer) ? aCustomer.name : "미확인 거주자";
+const name = aCustomer.isUnknown ? "미확인 거주자" : aCustomer.name;
