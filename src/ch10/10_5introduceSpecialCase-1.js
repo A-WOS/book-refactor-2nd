@@ -7,6 +7,7 @@ class Customer {
     get billingPlan() {return this._billingPlan;}
     set billingPlan(arg) {this._billingPlan = arg;}
     get paymentHistory() {return this._payMentHistory;}
+    get isUnknown() {return false;}
 }
 
 // 클라이언트1
