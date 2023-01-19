@@ -23,7 +23,7 @@ class UnKnownCustomer {
 // 클라이언트1
 const aCustomer = site.customer;
 let customerName;
-if (aCustomer === "미확인 고객") customerName = "거주자";
+if (isUnknown(aCustomer)) customerName = "거주자";
 else customerName = aCustomerName;
 
 // 클라이언트2
