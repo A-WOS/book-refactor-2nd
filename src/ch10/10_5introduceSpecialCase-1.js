@@ -5,7 +5,7 @@ class Site {
 }
 
 class Customer {
-    get name() {return this._name;}
+    get name() {return "거주자";}
     get billingPlan() {return this._billingPlan;}
     set billingPlan(arg) {this._billingPlan = arg;}
     get paymentHistory() {return this._payMentHistory;}
@@ -19,14 +19,13 @@ function isUnknown(arg) {
 }
 
 class UnKnownCustomer {
+    get name() {return "거주자";}
     get isUnknown() {return true;}
 }
 
 // 클라이언트1
 const aCustomer = site.customer;
-let customerName;
-if (isUnknown(aCustomer)) customerName = "거주자";
-else customerName = aCustomerName;
+const customerName = aCustomer.name;
 
 // 클라이언트2
 const Plan = (isUnknown(aCustomer)) ?
