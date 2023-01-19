@@ -53,3 +53,7 @@ class Rating {
         return result;
     }
 }
+
+class ExperiencedChinaRating extends Rating {
+
+}
