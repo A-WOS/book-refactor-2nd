@@ -1,18 +1,3 @@
-class Bird {
-    constructor(birdObject) {
-        Object.assign(this, birdObject);
-    }
-
-    get plumage() {
-        return "알 수 없다";
-    }
-
-    get airSpeedVelocity() {
-        return null;
-    }
-}
-
-
 function plumages(birds) {
     return new Map(birds.map(b => [b.name, plumage(b)]));
 }
@@ -39,6 +24,20 @@ function createBird(bird) {
             return new NorwegianBlueParrot(bird);
         default:
             return new Bird(bird);
+    }
+}
+
+class Bird {
+    constructor(birdObject) {
+        Object.assign(this, birdObject);
+    }
+
+    get plumage() {
+        return "알 수 없다";
+    }
+
+    get airSpeedVelocity() {
+        return null;
     }
 }
 
