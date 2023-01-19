@@ -44,3 +44,6 @@ if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
 
 // 클라이언트4
 const weekDelinquent = aCustomer.paymentHistory.weekDelinquentInLastYear;
+
+// 튀는 클라이언트
+const name = !isUnknown(aCustomer) ? aCustomer.name : "미확인 거주자";
