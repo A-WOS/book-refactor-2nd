@@ -20,6 +20,11 @@ function enrichSite(aSite) {
     const result = _.cloneDeep(aSite);
     const unknownCustomer = {
         isUnknown: true,
+        name: "거주자",
+        billingPlan: registry.billingPlans.basic,
+        paymentHistory: {
+            weekDelinquentInLastYear: 0,
+        }
     };
 
     if (isUnknown(result.customer)) result.customer = unknownCustomer;
@@ -36,16 +41,10 @@ function isUnknown(aCustomer) {
 const rawSite = acquireSiteData();
 const site = enrichSite(rawSite);
 const aCustomer = site.customer;
-let customerName;
-if (isUnknown(aCustomer)) customerName = "거주자";
-else customerName = aCustomer.name;
+const customerName = aCustomer.name;
 
 // 클라이언트2
-const Plan = (isUnknown(aCustomer)) ?
-    registry.billingPlans.basic
-    : aCustomer.billingPlan;
+const Plan = aCustomer.billingPlan;
 
 // 클라이언트3
-const weekDelinquent =  (isUnknown(aCustomer)) ?
-    0
-    : aCustomer.paymentHistory.weekDelinquentInLastYear;
+const weekDelinquent = aCustomer.paymentHistory.weekDelinquentInLastYear;
