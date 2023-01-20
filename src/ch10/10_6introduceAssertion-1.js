@@ -1,8 +1,8 @@
 class Customer {
-    applyDiscount(aNumber) {
+    set applyDiscount(aNumber) {
         if (!this.discountRate) return aNumber;
         else {
-            assert(this.discountRate >= 0);
+            assert(null === aNumber || this.discountRate >= 0);
             return aNumber - (this.discountRate * aNumber);
         }
     }
