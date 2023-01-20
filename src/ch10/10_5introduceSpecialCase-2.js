@@ -15,6 +15,11 @@ class Customer {
 function createUnknownCustomer() {
     return {
         isUnKnown: true,
+        name: "거주자",
+        billingPlan: registry.billingPlans.basic,
+        paymentHistory: {
+            weekDelinquentInLastYear: 0,
+        }
     };
 }
 
@@ -24,16 +29,10 @@ function isUnknown(arg) {
 
 // 클라이언트1
 const aCustomer = site.customer;
-let customerName;
-if (isUnknown(aCustomer)) customerName = "거주자";
-else customerName = aCustomer.name;
+const customerName = aCustomer.name;
 
 // 클라이언트2
-const Plan = isUnknown(aCustomer) ?
-    registry.billingPlans.basic
-    : aCustomer.billingPlan;
+const Plan = aCustomer.billingPlan;
 
 // 클라이언트3
-const weekDelinquent =  isUnknown(aCustomer) ?
-    0
-    : aCustomer.paymentHistory.weekDelinquentInLastYear;
+const weekDelinquent =  aCustomer.paymentHistory.weekDelinquentInLastYear;
