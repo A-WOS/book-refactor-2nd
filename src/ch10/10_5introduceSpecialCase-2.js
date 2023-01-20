@@ -23,10 +23,6 @@ function createUnknownCustomer() {
     };
 }
 
-function isUnknown(arg) {
-    return arg.isUnKnown;
-}
-
 // 클라이언트1
 const aCustomer = site.customer;
 const customerName = aCustomer.name;
