@@ -16,6 +16,17 @@ const b = {
     customer: "미확인 고객"
 }
 
+function enrichSite(aSite) {
+    const result = _.cloneDeep(aSite);
+    const unknownCustomer = {
+        isUnknown: true,
+    };
+
+    if (isUnknown(result.customer)) result.customer = unknownCustomer;
+    else result.customer.isUnknown = false;
+    return result;
+}
+
 function isUnknown(aCustomer) {
     return aCustomer === "미확인 고객";
 }
