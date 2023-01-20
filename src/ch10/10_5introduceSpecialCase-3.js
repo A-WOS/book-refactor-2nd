@@ -17,7 +17,8 @@ const b = {
 }
 
 // 클라이언트1
-const site = acquireSiteData();
+const rawSite = acquireSiteData();
+const site = enrichSite(rawSite);
 const aCustomer = site.customer;
 let customerName;
 if (aCustomer === "미확인 고객") customerName = "거주자";
