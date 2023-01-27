@@ -20,8 +20,13 @@ const unknownJsonData = {
     customer: "미확인 고객",
 }
 
+function enrichSite(inputSite) {
+    return _.cloneDeep(inputSite);
+}
+
 function client1Code() {
-    const site = simpleJsonData;
+    const rawSite = simpleJsonData;
+    const site = enrichSite(rawSite);
     const aCustomer = site.customer;
     // ... 수많은 코드 ...
     let customerName;
