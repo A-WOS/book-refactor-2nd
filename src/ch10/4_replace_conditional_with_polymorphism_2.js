@@ -60,7 +60,7 @@ function createRating(voyage, history) {
 }
 
 function rating(voyage, history) {
-    return new Rating(voyage, history).value;
+    return createRating(voyage, history).value;
 }
 
 const voyage = {zone: "서인도", length: 10}
