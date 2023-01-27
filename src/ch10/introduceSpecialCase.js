@@ -20,6 +20,16 @@ class Customer {
     get paymentHistory() {
         return this._paymentHistory;
     }
+
+    get isUnknown() {
+        return false;
+    }
+}
+
+class UnknownCustomer {
+    get isUnknown() {
+        return true;
+    }
 }
 
 // 클라이언트 1
@@ -37,3 +47,4 @@ if (aCustomer !== "미확인 고객") aCustomer.billingPlan = newPlan;
 
 // 클라이언트 4
 const weeksDelinquent = (aCustomer === "미확인 고객") ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+
