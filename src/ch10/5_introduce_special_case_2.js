@@ -16,21 +16,25 @@ function createUnknownCustomer() {
     };
 }
 
+function isUnknown(arg) {
+    return (arg === "미확인 고객");
+}
+
 function client1Code() {
     const aCustomer = site.customer;
     let customer;
-    if (aCustomer === "미확인 고객") customerName = "거주자";
+    if (isUnknown(aCustomer)) customerName = "거주자";
     else customerName = aCustomer.name;
 }
 
 function client2Code() {
-    const plan = (aCustomer === "미확인 고객") ?
+    const plan = isUnknown(aCustomer) ?
         registry.billingPlans.basic
         : aCustomer.billingPlan;
 }
 
 function client3Code() {
-    const weeksDelinquent = (aCustomer === "미확인 고객") ?
+    const weeksDelinquent = isUnknown(aCustomer) ?
         0
         : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
