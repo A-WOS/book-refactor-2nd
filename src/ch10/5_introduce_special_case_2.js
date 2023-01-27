@@ -15,6 +15,7 @@ class Customer {
 function createUnknownCustomer() {
     return {
         isUnknown: true,
+        name: "거주자",
     };
 }
 
@@ -24,9 +25,7 @@ function isUnknown(arg) {
 
 function client1Code() {
     const aCustomer = site.customer;
-    let customer;
-    if (isUnknown(aCustomer)) customerName = "거주자";
-    else customerName = aCustomer.name;
+    const customerName = aCustomer.name;
 }
 
 function client2Code() {
