@@ -29,3 +29,28 @@ function isUnknown(arg) {
         throw new Error(`잘못된 값과 비교: <${arg}>`);
     return (arg === "미확인 고객");
 }
+
+function client1Code() {
+    const aCustomer = site.customer;
+    let customerName;
+    if (aCustomer === "미확인 고객") customerName = "거주자";
+    else customerName = aCustomer.name;
+}
+
+function client2Code(aCustomer, registry) {
+    const plan = (aCustomer === "미확인 고객") ?
+        registry.billingPlans.basic
+        : aCustomer.billingPlan;
+}
+
+function client3Code(aCustomer, newPlan) {
+    if (aCustomer != "미확인 고객") aCustomer.billingPlan = newPlan;
+}
+
+function client4Code() {
+    const weeksDelinquent = (aCustomer === "미확인 고객") ?
+        0
+        : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+}
+
+
