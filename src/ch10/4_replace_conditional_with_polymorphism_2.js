@@ -35,13 +35,13 @@ class Rating {
         let result = 2;
         if (this.voyage.zone === "중국") result += 1;
         if (this.voyage.zone === "중국") result += 1;
-        result += this.voyageAndHistoryLengthFactor;
+        result += this.historyLengthFactor;
+        result += this.voyageLengthFactor;
         return result;
     }
 
-    get voyageAndHistoryLengthFactor() {
+    get voyageLengthFactor() {
         let result = 0;
-        result += this.historyLengthFactor;
         if (this.voyage.length > 14) result -= 1;
         return result;
     }
@@ -57,10 +57,9 @@ class ExperiencedChinaRating extends Rating {
         return Math.max(result, 0);
     }
 
-    get voyageAndHistoryLengthFactor() {
+    get voyageLengthFactor() {
         let result = 0;
         result += 3;
-        result += this.historyLengthFactor;
         if (this.voyage.length > 12) result += 1;
         if (this.voyage.length > 18) result -= 1;
         return result;
