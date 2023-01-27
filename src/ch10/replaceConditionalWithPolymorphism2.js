@@ -1,5 +1,11 @@
 function rating(voyage, history) { // 투자 등급
-    return new Rating(voyage, history).value;
+    return createRating(voyage, history).value;
+}
+
+function createRating(voyage, history) {
+    if (voyage.zone === "중국" && history.some(v => "중국" === v.zone))
+        return new ExperiencedChinaRating(voyage, history)
+    else return new Rating(voyage, history);
 }
 
 class Rating {
@@ -60,4 +66,8 @@ class Rating {
 
         return result;
     }
+}
+
+class ExperiencedChinaRating extends Rating {
+
 }
