@@ -1,7 +1,6 @@
 class ProductionPlan {
     get production() {
-        assert(this._production === this.calculatedProduction);
-        return this._production;
+        return this.calculatedProduction;
     }
     applyAdjustment(anAdjustment) {
         this._adjustments.push(anAdjustment);
