@@ -10,8 +10,8 @@ class Person {
 }
 
 class TelephoneNumber {
-    get areaCode() { return this.areaCode; }
-    set areaCode(arg) { this.areaCode = arg; }
+    get areaCode() { return this._areaCode; }
+    set areaCode(arg) { this._areaCode = arg; }
     get number() { return this._number; }
     set number(arg) { this._number = arg; }
 }
