@@ -1,10 +1,5 @@
 function calculatePrice() {
-    let charge;
-    if (summer())
-        charge = summerCharge();
-    else
-        charge = regularCharge();
-    return charge;
+    return summer() ? summerCharge() : regularCharge();
 }
 
 function summer() {
