@@ -36,14 +36,10 @@ class Rating {
     get captainHistoryRisk() { // 선장의 항해 이력 위험요소
         let result = 1;
 
-        if (this.history.length > 5) result += 4;
+        if (this.history.length < 5) result += 4;
         result += this.history.filter(v => v.profit < 0).length;
 
         return Math.max(result, 0);
-    }
-
-    get hasChinaHistory() { // 중국을 경유하는가?
-        return this.history.some(v => "중국" === v.zone);
     }
 
     get voyageProfitFactor() { // 수익 요인
