@@ -25,6 +25,11 @@ class UnknownCustomer {
     get name() {return "거주자";}
     get billingPlan() {return registry.billingPlans.basic;}
     set billingPlan(arg) { /* 무시한다 */ }
+    get paymentHistory() {return new NullPaymentHistory();}
+}
+
+class NullPaymentHistory {
+    get weeksDelinquentInLastYear() {return 0;}
 }
 
 function isUnknown(arg) {
@@ -47,9 +52,7 @@ function client3Code(aCustomer, newPlan) {
 }
 
 function client4Code() {
-    const weeksDelinquent = isUnknown(aCustomer) ?
-        0
-        : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+    const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
 
 
