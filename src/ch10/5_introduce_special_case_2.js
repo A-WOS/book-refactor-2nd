@@ -7,6 +7,13 @@ class Customer {
     get billingPlan() {/**/}
     set billingPlan(arg) {/**/}
     get paymentHistory() {/**/}
+    get isUnknown() {return false;}
+}
+
+function createUnknownCustomer() {
+    return {
+        isUnknown: true,
+    };
 }
 
 function client1Code() {
