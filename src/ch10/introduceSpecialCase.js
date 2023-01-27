@@ -30,6 +30,10 @@ class UnknownCustomer {
     get isUnknown() {
         return true;
     }
+
+    get name() {
+        return "거주자";
+    }
 }
 
 function isUnknown(arg) {
@@ -41,9 +45,7 @@ function isUnknown(arg) {
 // 클라이언트 1
 const aCustomer = site.customer;
 // ... 수 많은 코드 ...
-let customerName;
-if (isUnknown(aCustomer)) customerName = "거주자";
-else customerName = aCustomer.name;
+const customerName = aCustomer.name;
 
 // 클라이언트 2
 const plan = (isUnknown(aCustomer)) ? registry.billingPlans.basic : aCustomer.billingPlan;
