@@ -11,6 +11,12 @@ class Person {
     set officeNumber(arg) {
         this._telephoneNumber = new TelephoneNumber(this.officeAreaCode, arg);
     }
+
+    equals(other) {
+        if (!(other instanceof TelephoneNumber)) return false;
+        return this.areaCode === other.areaCode &&
+            this.number === other.number;
+    }
 }
 
 class TelephoneNumber {
