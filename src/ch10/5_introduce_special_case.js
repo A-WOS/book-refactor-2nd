@@ -55,4 +55,6 @@ function client4Code() {
     const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
 
-
+function weirdClientCode(aCustomer) {
+    const name = !isUnknown(aCustomer) ? aCustomer.name : "미확인 거주자";
+}
