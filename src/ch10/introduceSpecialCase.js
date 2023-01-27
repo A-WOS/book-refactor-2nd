@@ -34,6 +34,13 @@ class UnknownCustomer {
     get name() {
         return "거주자";
     }
+
+    get billingPlan() {
+        return registry.billingPlans.basic;
+    }
+
+    set billingPlan(arg) {
+    }
 }
 
 function isUnknown(arg) {
@@ -48,7 +55,7 @@ const aCustomer = site.customer;
 const customerName = aCustomer.name;
 
 // 클라이언트 2
-const plan = (isUnknown(aCustomer)) ? registry.billingPlans.basic : aCustomer.billingPlan;
+const plan = aCustomer.billingPlan;
 
 // 클라이언트 3
 if (aCustomer !== "미확인 고객") aCustomer.billingPlan = newPlan;
