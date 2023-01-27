@@ -39,8 +39,6 @@ class Rating {
         if (this.history.length > 5) result += 4;
         result += this.history.filter(v => v.profit < 0).length;
 
-        if (this.voyage.zone === "중국" && this.hasChinaHistory) result -= 2;
-
         return Math.max(result, 0);
     }
 
@@ -69,5 +67,9 @@ class Rating {
 }
 
 class ExperiencedChinaRating extends Rating {
+    get captainHistoryRisk() {
+        const result = super.captainHistoryRisk - 2
 
+        return Math.max(result, 0);
+    }
 }
