@@ -19,3 +19,24 @@ const unknownJsonData = {
     // 더 많은 현장(site) 정보
     customer: "미확인 고객",
 }
+
+function client1Code() {
+    const site = simpleJsonData;
+    const aCustomer = site.customer;
+    // ... 수많은 코드 ...
+    let customerName;
+    if (aCustomer === "미확인 고객") customerName = "거주자";
+    else customerName = aCustomer.name;
+}
+
+function client2Code() {
+    const plan = (aCustomer === "미확인 고객") ?
+        registry.billingPlans.basic
+        : aCustomer.billingPlan;
+}
+
+function client3Code() {
+    const weeksDelinquent = (aCustomer === "미확인 고객") ?
+        0
+        : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+}
