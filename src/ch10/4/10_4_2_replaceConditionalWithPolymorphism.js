@@ -57,6 +57,8 @@ class Rating { // 함수들을 Rating 클래스로 묶었다.
     }
 }
 
+class ExperiencedChinaRating extends Rating {}
+
 const voyage = {zone: "서인도", length: 10}
 const history = [
     {zone: "동인도", profit: 5},
