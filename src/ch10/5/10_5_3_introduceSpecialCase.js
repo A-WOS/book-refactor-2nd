@@ -20,13 +20,17 @@ const unknownJsonData = {
     customer: "미확인 고객",
 }
 
+function isUnknown(aCustomer) {
+    return aCustomer === "미확인 고객";
+}
+
 function client1Code() {
     const rawSite = acquireSiteData();
     const site = enrichSite(rawSite);
     const aCustomer = site.customer;
     // ... 수많은 코드 ...
     let customerName;
-    if (aCustomer === "미확인 고객") customerName = "거주자";
+    if (isUnknown(aCustomer)) customerName = "거주자";
     else customerName = aCustomer.name;
 
     function enrichSite(inputSite) {
@@ -35,13 +39,13 @@ function client1Code() {
 }
 
 function client2Code() {
-    const plan = (aCustomer === "미확인 고객") ?
+    const plan = (isUnknown(aCustomer)) ?
         registry.billingPlans.basic
         : aCustomer.billingPlan;
 }
 
 function client3Code() {
-    const weeksDelinquent = (aCustomer === "미확인 고객") ?
+    const weeksDelinquent = (isUnknown(aCustomer) === "미확인 고객") ?
         0
         : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
