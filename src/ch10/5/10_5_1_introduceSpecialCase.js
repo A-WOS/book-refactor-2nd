@@ -13,6 +13,8 @@ class Customer {
 class UnknownCustomer {
     get isUnknown() { return this.true; }
     get name() { return "거주자"; }
+    get billingPlan() { return registry.billingPlans.basic; }
+    set billingPlan(arg) { /* 무시한다. */ }
 }
 
 function isUnknown(arg) {
@@ -27,13 +29,11 @@ function client1Code() {
 }
 
 function client2Code(aCustomer, registry) {
-    const plan = (isUnknown(aCustomer)) ?
-        registry.billingPlans.basic
-        : aCustomer.billingPlan;
+    const plan = aCustomer.billingPlan;
 }
 
 function client3Code(aCustomer, newPlan) {
-    if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
+    aCustomer.billingPlan = newPlan;
 }
 
 function client4Code() {
