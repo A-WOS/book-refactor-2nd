@@ -29,7 +29,7 @@ class Rating { // 함수들을 Rating 클래스로 묶었다.
         let result = 1;
         if (this.history.length < 5) result += 4;
         result += this.history.filter(v => v.profit < 0).length;
-        if (this.voyage.zone === "중국" && this.hasChinaHistory(this.history)) result -= 2;
+        if (this.voyage.zone === "중국" && this.hasChinaHistory) result -= 2;
         return Math.max(result, 0);
     }
 
@@ -38,7 +38,7 @@ class Rating { // 함수들을 Rating 클래스로 묶었다.
 
         if (this.voyage.zone === "중국") result += 1;
         if (this.voyage.zone === "중국") result += 1;
-        if (this.voyage.zone === "중국" && this.hasChinaHistory(this.history)) {
+        if (this.voyage.zone === "중국" && this.hasChinaHistory) {
             result += 3;
             if (this.history.length > 10) result += 1;
             if (this.voyage.length > 12) result += 1;
