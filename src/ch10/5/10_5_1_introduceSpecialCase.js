@@ -73,3 +73,7 @@ function client3Code(aCustomer, newPlan) {
 function client4Code() {
     const weeksDelinquent = aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
+
+function otherClient() {
+    const name = !isUnknown(aCustomer) ? aCustomer.name : "미확인 거주자";
+}
