@@ -20,6 +20,17 @@ const unknownJsonData = {
     customer: "미확인 고객",
 }
 
+function enrichSite(inputSite) {
+    const result = _.cloneDeep(inputSite);
+    const unknownCustomer = {
+        isUnknown: true,
+    };
+
+    if (isUnknown(result.customer)) result.customer = unknownCustomer;
+    else result.customer.isUnknown = false;
+    return result;
+}
+
 function isUnknown(aCustomer) {
     return aCustomer === "미확인 고객";
 }
@@ -32,10 +43,6 @@ function client1Code() {
     let customerName;
     if (isUnknown(aCustomer)) customerName = "거주자";
     else customerName = aCustomer.name;
-
-    function enrichSite(inputSite) {
-        return _.cloneDeep(inputSite);
-    }
 }
 
 function client2Code() {
@@ -45,7 +52,7 @@ function client2Code() {
 }
 
 function client3Code() {
-    const weeksDelinquent = (isUnknown(aCustomer) === "미확인 고객") ?
+    const weeksDelinquent = (isUnknown(aCustomer)) ?
         0
         : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
