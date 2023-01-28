@@ -50,10 +50,6 @@ class Rating { // 함수들을 Rating 클래스로 묶었다.
     get historyLengthFactor() {
         return (this.history.length > 8) ? 1 : 0;
     }
-
-    get hasChinaHistory() {
-        return this.history.some(v => "중국" === v.zone);
-    }
 }
 
 class ExperiencedChinaRating extends Rating {
