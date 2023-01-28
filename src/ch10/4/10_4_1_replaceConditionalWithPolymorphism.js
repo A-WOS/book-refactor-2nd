@@ -10,14 +10,6 @@ function speeds(birds) {
         .map(bird => [bird.name, bird.airSpeedVelocity]));
 }
 
-function plumage(bird) {
-    return new Bird(bird).plumage;
-}
-
-function airSpeedVelocity(bird) {
-    return new Bird(bird).airSpeedVelocity;
-}
-
 function createdBird(bird) {
     switch (bird.type) {
         case '유럽 제비':
