@@ -12,6 +12,7 @@ class Customer {
 
 class UnknownCustomer {
     get isUnknown() { return this.true; }
+    get name() { return "거주자"; }
 }
 
 function isUnknown(arg) {
@@ -21,9 +22,8 @@ function isUnknown(arg) {
 }
 
 function client1Code() {
-    let customerName;
-    if (isUnknown(aCustomer)) customerName = "거주자";
-    else customerName = aCustomer.name;
+    const customerName = aCustomer.name;
+
 }
 
 function client2Code(aCustomer, registry) {
