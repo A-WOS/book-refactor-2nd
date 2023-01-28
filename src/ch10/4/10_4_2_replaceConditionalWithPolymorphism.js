@@ -1,7 +1,5 @@
 function rating(voyage, history) { // 투자 등급
-
-    if (vpf * 3 > (vr + chr * 2)) return "A";
-    else return "B";
+    return createRating(voyage, history).value;
 }
 
 class Rating { // 함수들을 Rating 클래스로 묶었다.
@@ -58,6 +56,12 @@ class Rating { // 함수들을 Rating 클래스로 묶었다.
 }
 
 class ExperiencedChinaRating extends Rating {}
+
+function createRating(voyage, history) {
+    if (voyage.zone === "중국" && history.some(v => "중국" === v.zone))
+        return new ExperiencedChinaRating(voyage, history);
+    else return new Rating(voyage, history);
+}
 
 const voyage = {zone: "서인도", length: 10}
 const history = [
