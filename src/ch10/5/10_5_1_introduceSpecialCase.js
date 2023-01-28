@@ -51,12 +51,6 @@ class NullPaymentHistory {
 
 }
 
-function isUnknown(arg) {
-    if (!(arg instanceof Customer || arg instanceof UnknownCustomer))
-        throw new Error(`잘못된 값과 비교: <${arg}>`);
-    return arg.isUnknown;
-}
-
 function client1Code() {
     const customerName = aCustomer.name;
 
@@ -75,5 +69,5 @@ function client4Code() {
 }
 
 function otherClient() {
-    const name = !isUnknown(aCustomer) ? aCustomer.name : "미확인 거주자";
+    const name = aCustomer.isUnknown ? "미확인 거주자" : aCustomer.name;
 }
