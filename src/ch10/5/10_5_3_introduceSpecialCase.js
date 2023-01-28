@@ -21,12 +21,17 @@ const unknownJsonData = {
 }
 
 function client1Code() {
-    const site = simpleJsonData;
+    const rawSite = acquireSiteData();
+    const site = enrichSite(rawSite);
     const aCustomer = site.customer;
     // ... 수많은 코드 ...
     let customerName;
     if (aCustomer === "미확인 고객") customerName = "거주자";
     else customerName = aCustomer.name;
+
+    function enrichSite(inputSite) {
+        return _.cloneDeep(inputSite);
+    }
 }
 
 function client2Code() {
