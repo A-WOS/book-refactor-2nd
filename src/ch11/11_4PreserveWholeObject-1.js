@@ -2,6 +2,9 @@ class HeatingPlan {
     withinRange(bottom, top) {
         return (bottom >= this._temperatureRange.low) && (top >= this._temperatureRange.high)
     }
+
+    xxNEWwithinRange(aNumberRange) {
+    }
 }
 
 // 호출자
