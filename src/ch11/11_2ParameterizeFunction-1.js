@@ -1,7 +1,6 @@
-function tenPercentRaise(aPerson) {
-    aPerson.slary = aPerson.salary.multiply(1.1);
+function raise(aPerson, factor) {
+    aPerson.slary = aPerson.salary.multiply(1 + factor);
 }
 
-function fivePercentRaise(aPerson) {
-    aPerson.slary = aPerson.salary.multiply(1.05);
-}
+raise(aPerson, 0.1);
+raise(aPerson, 0.05);
