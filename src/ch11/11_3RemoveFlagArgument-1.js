@@ -1,11 +1,5 @@
 function deliveryDate(anOrder, isRush) {
-    if (isRush) {
-        let deliveryTime;
-        if (["MA", "CT"].includes(anOrder.deliveryState)) deliveryTime = 1;
-        else if (["NY", "NH"].includes(anOrder.deliveryState)) deliveryTime = 2;
-        else deliveryTime = 3;
-        return anOrder.placeOn.plusDays(1 + deliveryTime);
-    }
+    if (isRush) {return rushDeliveryDate(anOrder);}
     else {
         let deliveryTime;
         if (["MA", "CT", "NY"].includes(anOrder.deliveryState)) deliveryTime = 2;
@@ -14,6 +8,14 @@ function deliveryDate(anOrder, isRush) {
         return anOrder.placeOn.plusDays(2 + deliveryTime);
 
     }
+}
+
+function rushDeliveryDate(anOrder) {
+    let deliveryTime;
+    if (["MA", "CT"].includes(anOrder.deliveryState)) deliveryTime = 1;
+    else if (["NY", "NH"].includes(anOrder.deliveryState)) deliveryTime = 2;
+    else deliveryTime = 3;
+    return anOrder.placeOn.plusDays(1 + deliveryTime);
 }
 
 //호출부
