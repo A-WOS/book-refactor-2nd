@@ -20,5 +20,5 @@ function regularDeliveryDate(anOrder) {
 }
 
 //호출부
-aShipment.deliveryDate = deliveryDate(anOrder, true);
-aShipment.deliveryDate = deliveryDate(anOrder, false);
+aShipment.deliveryDate = rushDeliveryDate(anOrder);
+aShipment.deliveryDate = regularDeliveryDate(anOrder);
