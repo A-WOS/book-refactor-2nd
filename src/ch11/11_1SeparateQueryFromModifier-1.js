@@ -20,5 +20,5 @@ function findMiscreant(people) {
             return "사루만";
         }
     }
-    return ""
+    return "";
 }
