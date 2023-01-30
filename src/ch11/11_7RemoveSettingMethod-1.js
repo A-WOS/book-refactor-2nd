@@ -10,6 +10,5 @@ class Person {
 
 
 // 생성자
-const martin = new Person();
+const martin = new Person("1234");
 martin.name = "마틴";
-martin.id = "1234";
