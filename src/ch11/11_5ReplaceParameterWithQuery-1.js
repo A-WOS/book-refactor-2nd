@@ -2,9 +2,12 @@ class Order {
     get finalPrice() {
         const basePrice = this.quantity * this.itemPrice;
         let discountLevel;
-        if (this.quantity > 100) discountLevel = 2;
-        else discountLevel = 1;
+        discountLevel = this.discountLevel();
         return this.discountedPrice(basePrice, discountLevel);
+    }
+
+    get discountLevel() {
+        return (this.quantity > 100) ? 2 : 1;
     }
 
     discountedPrice(basePrice, discountLevel) {
