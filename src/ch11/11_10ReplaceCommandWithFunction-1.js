@@ -14,6 +14,10 @@ class ChargeCalculater {
     }
 }
 
+function charge(customer, usage, provider) {
+    return new ChargeCalculater(customer, usage, provider).charge;
+}
+
 
 // 호출자
-monthCharge = new ChargeCalculater(customer, usage, provider).charge;
+monthCharge = charge(customer, usage, provider);
