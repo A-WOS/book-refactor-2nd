@@ -1,7 +1,7 @@
 function localShippingRules(country) {
     const data = countryData.shippingRuels[country];
     if (data) return new shippingRuels(data)
-    else return -23;
+    else throw new OrderProcessingError(-23);
 }
 
 function calculateShippingCosts(anOrder) {
