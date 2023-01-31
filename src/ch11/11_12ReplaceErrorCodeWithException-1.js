@@ -7,7 +7,6 @@ function localShippingRules(country) {
 function calculateShippingCosts(anOrder) {
     // 생략
     const shippingRules = localShippingRules(anOrder.country);
-    if (shippingRules < 0) throw new Error("오류 코드가 다 사라지지 않았습니다."); // 오류 전파
     // 생략
 }
 
@@ -20,7 +19,6 @@ try {
     else
         throw e;
 }
-if (status < 0) errorList.push({order: orderData, errorCode: status});
 
 class OrderProcessingError extends Error {
     constructor(errorCode) {
