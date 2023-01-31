@@ -5,14 +5,14 @@ class ChargeCalculater {
         this._provicer = provider;
     }
 
-    get charge() {
+    charge() {
         const baseCharge = this._customer.baseRate * this._usage;
         return baseCharge + this._provicer.connectionCharge;
     }
 }
 
 function charge(customer, usage, provider) {
-    return new ChargeCalculater(customer, usage, provider).charge;
+    return new ChargeCalculater(customer, usage, provider).charge();
 }
 
 
