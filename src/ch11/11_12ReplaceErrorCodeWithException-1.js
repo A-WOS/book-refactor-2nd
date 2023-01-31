@@ -18,3 +18,12 @@ try {
     throw e;
 }
 if (status < 0) errorList.push({order: orderData, errorCode: status});
+
+class OrderProcessingError extends Error {
+    constructor(errorCode) {
+        super(`주문 처리 오류: ${errorCode}`);
+        this.code = errorCode;
+    }
+
+    get name() {return "OrderProcessingError";}
+}
