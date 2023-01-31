@@ -7,7 +7,7 @@ function localShippingRules(country) {
 function calculateShippingCosts(anOrder) {
     // 생략
     const shippingRules = localShippingRules(anOrder.country);
-    if (shippingRules < 0) return shippingRules; // 오류 전파
+    if (shippingRules < 0) throw new Error("오류 코드가 다 사라지지 않았습니다."); // 오류 전파
     // 생략
 }
 
