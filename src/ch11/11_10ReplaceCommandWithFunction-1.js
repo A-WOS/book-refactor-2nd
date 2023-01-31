@@ -10,7 +10,8 @@ class ChargeCalculater {
     }
 
     get charge() {
-        return this.baseCharge + this._provicer.connectionCharge;
+        const baseCharge = this.baseCharge;
+        return baseCharge + this._provicer.connectionCharge;
     }
 }
 
