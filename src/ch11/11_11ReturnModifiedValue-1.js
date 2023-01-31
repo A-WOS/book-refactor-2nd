@@ -1,8 +1,6 @@
 const totalAscent = calculateAscent();
-let totalTime = 0;
-let totalDistance = 0;
-calculateTime();
-calculateDistance();
+const totalTime = calculateTime();
+const totalDistance = calculateDistance();
 const pace = totalTime / 60 / totalDistance;
 
 function calculateAscent() {
