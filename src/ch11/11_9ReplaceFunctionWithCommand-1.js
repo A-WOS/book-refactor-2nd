@@ -4,7 +4,12 @@ function score(candidate, medicalExam, scoringGuide) {
 
 
 class Score {
-    execute(candidate, medicalExam, scoringGuide) {
+    constructor(candidate) {
+        this._candidate = candidate;
+    }
+
+
+    execute(medicalExam, scoringGuide) {
         let result = 0;
         let healthLevel = 0;
         let highMedicalRiskFlag = false;
@@ -15,7 +20,7 @@ class Score {
         }
 
         let certificationGrade = "regular";
-        if (scoringGuide.stateWithLoCertification(candidate.originState)) {
+        if (scoringGuide.stateWithLoCertification(this._candidate.originState)) {
             certificationGrade = "Low";
             result -= 5;
         }
