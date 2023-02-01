@@ -1,5 +1,5 @@
 function withinBand(usage, bottom, top) {
-    return usage > 100 ? Math.min(usage, 200) - 100 : 0;
+    return usage > bottom ? Math.min(usage, 200) - bottom : 0;
 }
 
 function baseCharge(usage) {
