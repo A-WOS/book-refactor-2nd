@@ -20,5 +20,5 @@ function regularDeliveryDate(anOrder) {
     return anOrder.placeOn.plusDays(2 + deliveryTime);
 }
 
-aShipment.deliveryDate = deliveryDate(anOrder, true);
-aShipment.deliveryDate = deliveryDate(anOrder, false);
+aShipment.deliveryDate = rushDeliveryDate(anOrder);
+aShipment.deliveryDate = regularDeliveryDate(anOrder);
