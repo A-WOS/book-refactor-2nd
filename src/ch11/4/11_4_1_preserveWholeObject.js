@@ -3,6 +3,9 @@ class HeatingPlan {
         return (bottom >= this._temperatureRange.low)
             && (top <= this._temperatureRange.high);
     }
+
+    xxNEWwithinRange(aNumberRange) {
+    }
 }
 
 const low = aRoom.daysTempRange.low;
