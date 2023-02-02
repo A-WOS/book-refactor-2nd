@@ -19,7 +19,16 @@ class Employee {
     }
 
     set type(arg) {
-        this._type = new EmployeeType(arg);
+        this._type = Employee.createEmployeeType(arg);
+    }
+
+    static createEmployeeType(aString) {
+        switch (aString) {
+            case "engineer": return new Engineer();
+            case "manager": return new Manager();
+            case "salesperson": return new Salesperson();
+            default: throw new Error(`${aString}라는 직원 유형은 없습니다.`);
+        }
     }
 
     get capitalizedType() {
@@ -40,4 +49,16 @@ class EmployeeType {
     toString() {
         return this._value
     }
+}
+
+class Engineer extends Employee {
+    get type() {return "engineer"}
+}
+
+class Manager extends Employee {
+    get type() {return "manager"}
+}
+
+class Salesperson extends Employee {
+    get type() {return "salesperson"}
 }
