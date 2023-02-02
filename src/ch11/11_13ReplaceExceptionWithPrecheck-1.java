@@ -3,12 +3,15 @@
 class ResuourecePool {
     public Resource get() {
         Resource result;
-        try {
-            result = available.pop();
-            allocated.add(result);
-        } catch (NoSuchElementException e) {
+        if (available.isEmpty()) {
             result = Resource.create();
             allocated.add(result);
+        } else {
+            try {
+                result = available.pop();
+                allocated.add(result);
+            } catch (NoSuchElementException e) {
+            }
         }
         return result;
     }
