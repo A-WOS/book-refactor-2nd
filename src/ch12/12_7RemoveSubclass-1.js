@@ -19,11 +19,9 @@ class Person {
     get isMale() {
         return "M" === this._genderCode;
     }
-}
 
-class Female extends Person {
-    get genderCode() {
-        return "F"
+    get isFemale() {
+        return "F" === this._genderCode;
     }
 }
 
@@ -32,7 +30,7 @@ function createPerson(aRecord) {
         case 'M':
             return new Person(aRecord.name, "M");
         case 'F':
-            return new Female(aRecord.name);
+            return new Person(aRecord.name, "F");
         default:
             return new Person(aRecord.name);
     }
