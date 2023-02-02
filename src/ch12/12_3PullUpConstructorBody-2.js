@@ -8,6 +8,10 @@ class Manager extends Employee {
     constructor(name, grade) {
         super(name);
         this._grade = grade;
+        this.finishConstruction();
+    }
+
+    finishConstruction() {
         if (this.isPrivileged) this.assingCar();
     }
 
