@@ -1,5 +1,5 @@
 class Person {
-    constructor(name) {
+    constructor(name, genderCode) {
         this._name = name;
         this._genderCode = genderCode || "X";
     }
@@ -10,6 +10,10 @@ class Person {
 
     get gender() {
         return "X";
+    }
+
+    get genderCode() {
+        return this._genderCode;
     }
 
     get isMale() {
