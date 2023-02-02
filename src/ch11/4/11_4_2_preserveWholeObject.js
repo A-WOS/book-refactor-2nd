@@ -1,13 +1,9 @@
 class Heating {
-    withinRange(bottom, top) {
-        return (bottom >= this._temperatureRange.low)
-            && (top <= this._temperatureRange.high);
-    }
-
     xxNEWwithinRange(tempRange) {
         const low = tempRange.low;
         const high = tempRange.high;
-        const isWithinRange = this.withinRange(low, high);
+        const isWithinRange = (low >= this._temperatureRange.low)
+            && (high <= this._temperatureRange.high);
         return isWithinRange;
     }
 }
