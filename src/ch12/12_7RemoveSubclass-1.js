@@ -39,7 +39,11 @@ function loadFromInput(data) {
     return data.map(aRecord => createPerson(aRecord));
 }
 
+function isMale(aPerson) {
+    return aPerson instanceof Male;
+}
+
 
 
 // 클라이언트
-const numberOfMails = people.filter(p => p instanceof Male).length;
+const numberOfMails = people.filter(p => isMale(p)).length;
