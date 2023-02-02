@@ -4,7 +4,7 @@ class Employee {
         this._name = name;
     }
 
-    vaildateType(arg) {
+    validateType(arg) {
         if (!["enggineer", "manager", "salesperson"].includes(arg))
             throw new Error(`${arg}라는 직원 유형은 없습니다.`);
     }
