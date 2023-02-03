@@ -15,6 +15,16 @@ class Bird {
     constructor(data) {
         this._name = data.name;
         this._plumage = data.plumage;
+        this._speciesDelegate = this.selectSpeciesDelegate(data)
+    }
+
+    selectSpeciesDelegate(data) {
+        switch (data.type) {
+            case '유럽 제비':
+                return new EuropeanSwallowDelegate();
+            default:
+                return null;
+        }
     }
 
     get name() {
