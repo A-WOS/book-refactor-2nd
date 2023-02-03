@@ -1,7 +1,5 @@
 function createBird(data) {
     switch (data.type) {
-        case '아프리카 제비':
-            return new AfricanSwallow(data);
         case '노르웨이 파랑 앵무':
             return new NorwegianBlueParrot(data);
         default:
@@ -37,18 +35,6 @@ class Bird {
 
     get airSpeedVelocity() {
         return this._speciesDelegate ? this._speciesDelegate.airSpeedVelocity() : null;
-    }
-}
-
-class AfricanSwallow extends Bird {
-    constructor(data) {
-        super(data);
-        this._numberOfCoconuts = data.numberOfCoconuts;
-
-    }
-
-    get airSpeedVelocity() {
-        return this._speciesDelegate.airSpeedVelocity;
     }
 }
 
