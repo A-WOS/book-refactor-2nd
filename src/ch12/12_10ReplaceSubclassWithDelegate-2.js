@@ -40,12 +40,12 @@ class SpeciesDelegate {
         this._bird = bird;
     }
 
-    get plumage() {
-        return this._bird._plumage || "보통이다";
-    }
-
     get airSpeedVelocity() {
         return null;
+    }
+
+    get plumage() {
+        return this._bird._plumage || "보통이다";
     }
 
 }
@@ -68,11 +68,6 @@ class AfricanSwallowDelegate extends SpeciesDelegate {
 }
 
 class NorwegianBlueParrotDelegate extends SpeciesDelegate {
-    get plumage() {
-        if (this.voltage > 100) return "그을렸다"
-        else return this._bird._plumage || "예쁘다";
-    }
-
     constructor(data, bird) {
         super(data, bird);
         this._voltage = data.voltage;
@@ -81,5 +76,10 @@ class NorwegianBlueParrotDelegate extends SpeciesDelegate {
 
     get airSpeedVelocity() {
         return (this._isNailed) ? 0 : 10 + this._voltage / 10;
+    }
+
+    get plumage() {
+        if (this.voltage > 100) return "그을렸다"
+        else return this._bird._plumage || "예쁘다";
     }
 }
