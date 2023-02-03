@@ -34,10 +34,19 @@ class PremiumBooking extends Booking {
     }
 }
 
+function createBooking(show, date) {
+    return new Booking(show, date);
+}
+
+function createPremiumBooking(show, date, extras) {
+    return new PremiumBooking(show, date, extras);
+}
+
+
 
 
 // 클라이언트
 // 일반
-aBooking = new Booking(show, date);
+aBooking = createBooking(show, date);
 // 프리미엄
-aBooking = new PremiumBooking(show, date, extras);
+aBooking = createPremiumBooking(show, date, extras);
