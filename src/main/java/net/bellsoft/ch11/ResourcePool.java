@@ -14,6 +14,7 @@ public Resource get() {
             result = available.pop();
             allocated.add(result);
         } catch (NoSuchElementException e) {
+            throw new AssertionError("도달 불가");
         }
     }
     return result;
