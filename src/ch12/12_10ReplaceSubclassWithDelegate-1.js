@@ -21,6 +21,12 @@ class Booking {
     _bePremium(extras) {
         this._premiumDelegate = new PremiumBookingDelegate(this, extras);
     }
+
+    get hasDinneer() {
+        return (this._premiumDelegate)
+            ? this._premiumDelegate.hasDinner
+            : undefined;
+    }
 }
 
 class PremiumBooking extends Booking {
@@ -50,6 +56,10 @@ class PremiumBookingDelegate {
 
     extendBasePrice(base) {
         return Math.round(base + this._extras.premiumFee);
+    }
+
+    get hasDinner() {
+        return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
     }
 }
 
