@@ -9,7 +9,7 @@ class OrderProcessingError extends Error {
 function localShippingRules(country) {
     const data = countryData.shippingRules[country];
     if (data) return new ShippingRules(data);
-    else return -23;
+    else throw new OrderProcessingError(-23);
 }
 
 function calculateShippingCosts(anOrder) {
