@@ -13,9 +13,9 @@ class Employee {
     }
 }
 
-function createEmployee(name, typeCode) {
-    return new Employee(name, typeCode);
+function createEmployee(name) {
+    return new Employee(name, 'E');
 }
 
-candidate = createEmployee(document.name, document.empType);
-const leadEngineer = new Employee(document.leadEngineer, 'E');
+candidate = createEmployee(document.name);
+const leadEngineer = createEmployee(document.leadEngineer);
