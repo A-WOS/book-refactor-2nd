@@ -1,18 +1,24 @@
 function score(candidate, medicalExam, scoringGuide) {
-    let result = 0;
-    let healthLevel = 0;
-    let highMedicalRiskFlag = false;
+    return new Score().execute(candidate, medicalExam, scoringGuide);
+}
 
-    if (medicalExam.isSmoker) {
-        healthLevel += 10;
-        highMedicalRiskFlag = true;
+class Score {
+    execute(candidate, medicalExam, scoringGuide) {
+        let result = 0;
+        let healthLevel = 0;
+        let highMedicalRiskFlag = false;
+
+        if (medicalExam.isSmoker) {
+            healthLevel += 10;
+            highMedicalRiskFlag = true;
+        }
+        let certificationGrade = "regular";
+        if (scoringGuide.stateWithLowCertification(candidate.originState)) {
+            certificationGrade = "low";
+            result -= 5;
+        }
+        // 비슷한 코드가 한참 이어짐
+        result -= Math.max(healthLevel - 5, 0);
+        return result;
     }
-    let certificationGrade = "regular";
-    if (scoringGuide.stateWithLowCertification(candidate.originState)) {
-        certificationGrade = "low";
-        result -= 5;
-    }
-    // 비슷한 코드가 한참 이어짐
-    result -= Math.max(healthLevel - 5, 0);
-    return result;
 }
