@@ -24,6 +24,11 @@ class Booking {
     _bePremium(extras) {
         this._premiumDelegate = new PremiumBookingDelegate(this, extras);
     }
+    get hasDinner() {
+        return (this._premiumDelegate)
+        ? this._premiumDelegate.hasDinner
+            : undefined;
+    }
 }
 
 class PremiumBooking extends Booking {
