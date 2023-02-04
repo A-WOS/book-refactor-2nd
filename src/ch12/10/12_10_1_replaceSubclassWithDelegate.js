@@ -29,5 +29,13 @@ class PremiumBooking extends Booking {
     }
 }
 
+function createBooking(show, date) {
+    return new Booking(show, date);
+}
+
+function createPremiumBooking(show, date, extras) {
+    return new PremiumBooking(show, date, extras);
+}
+
 regularBooking = new Booking(show, date);
 premiumBooking = new PremiumBooking(show, date, extras);
