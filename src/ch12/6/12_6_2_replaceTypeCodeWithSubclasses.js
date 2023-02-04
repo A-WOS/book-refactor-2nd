@@ -3,6 +3,10 @@ class EmployeeType {
         this._value = aString;
     }
     toString() {return this._value;}
+    get capitalizedName() {
+        return this.toString().charAt(0).toUpperCase()
+        + this.toString().substr(1).toLowerCase();
+    }
 }
 
 class Employee {
@@ -27,11 +31,7 @@ class Employee {
             default: throw new Error(`${aString}라는 직우너 유형은 없습니다.`);
         }
     }
-
-    get capitalizedType() {
-        return this.typeString.charAt(0).toUpperCase() + this.typeString.substr(1).toLowerCase();
-    }
-    toString() {return `${this._name} (${this.capitalizedType})`;}
+    toString() {return `${this._name} (${this.type.capitalizedName})`;}
 }
 
 class Engineer extends EmployeeType {
