@@ -4,7 +4,9 @@ class Booking {
         this._date = date;
     }
     get hasTalkback() {
-        return this._show.hasOwnProperty('talkback') && !this.isPeakDay;
+        return (this._premiumDelegate)
+        ? this._premiumDelegate.hasTalkback
+        : this._show.hasOwnProperty('talkback') && !this.isPeakDay;
     }
     get basePrice() {
         let result = this._show.price;
