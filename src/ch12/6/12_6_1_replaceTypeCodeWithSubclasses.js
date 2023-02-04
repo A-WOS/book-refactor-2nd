@@ -8,5 +8,6 @@ class Employee {
         if (!["engineer", "manager", "salesperson"].includes(arg))
             throw new Error(`${arg}라는 직원 유형은 없습니다.`);
     }
+    get type() { return this._type; }
     toString() {return `${this._name} (${this._type})`;}
 }
