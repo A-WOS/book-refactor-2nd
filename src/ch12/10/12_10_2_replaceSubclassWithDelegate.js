@@ -19,7 +19,7 @@ class Bird {
     }
     get name() { return this._name;}
     get plumage() { return this._plumage || "보통이다"; }
-    get airSpeedVelocity() { return null; }
+    get airSpeedVelocity() { return this._speciesDelegate ? this._speciesDelegate.airSpeedVelocity : null; }
 
     selectSpeciesDelegate(data) {
         switch (data.type) {
