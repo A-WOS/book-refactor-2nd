@@ -1,14 +1,15 @@
 class Person {
-    constructor(name) {
+    constructor(name, genderCode) {
         this._name = name;
+        this._genderCode = genderCode || "X";
     }
 
     get name() {
         return this._name;
     }
 
-    get gender() {
-        return "X";
+    get genderCode() {
+        return this._genderCode;
     }
 
     get isMale() {return this instanceof Male;}
@@ -42,5 +43,3 @@ function loadFromInput(data) {
 }
 
 const numberOfMales = people.filter(p => p.isMale).length;
-
-
