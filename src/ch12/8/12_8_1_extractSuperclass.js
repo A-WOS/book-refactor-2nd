@@ -22,7 +22,7 @@ class Department extends Party {
         this._staff = staff;
     }
     get staff() { return this._staff.slice(); }
-    get totalMonthlyCost() { // 총 월간 비용
+    get monthlyCost() { // 총 월간 비용
         return this.staff
             .map(e => e.monthlyCost)
             .reduce((sum, cost) => sum + cost);
@@ -31,6 +31,6 @@ class Department extends Party {
         return this.staff.length;
     }
     get totalAnnualCost() { // 총 연간 비용
-        return this.totalMonthlyCost * 12;
+        return this.monthlyCost * 12;
     }
 }
