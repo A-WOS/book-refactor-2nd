@@ -14,7 +14,6 @@ class Bird {
         this._speciesDelegate = this.selectSpeciesDelegate(data);
     }
     get name() { return this._name;}
-    get plumage() { return this._plumage || "보통이다"; }
     get airSpeedVelocity() { return this._speciesDelegate ? this._speciesDelegate.airSpeedVelocity : null; }
 
     selectSpeciesDelegate(data) {
@@ -31,12 +30,23 @@ class Bird {
     }
 }
 
-class EuropeanSwallowDelegate {
+class SpeciesDelegate {
+    constructor(data, bird) {
+        this._bird = bird;
+    }
+
+    get plumage() {
+        return this._bird._plumage || "보통이다";
+    }
+}
+
+class EuropeanSwallowDelegate extends SpeciesDelegate {
     get airSpeedVelocity() { return 35; }
 }
 
-class AfricanSwallowDelegate {
-    constructor(data) {
+class AfricanSwallowDelegate extends SpeciesDelegate {
+    constructor(data, bird) {
+        super(data, bird);
         this._numberOfCoconuts = data.numberOfCoconuts;
     }
     get airSpeedVelocity() {
@@ -50,9 +60,9 @@ class NorwegianBlueParrot extends Bird {
     }
 }
 
-class NorwegianBlueParrotDelegate {
+class NorwegianBlueParrotDelegate extends SpeciesDelegate {
     constructor(data, bird) {
-        this._bird = bird;
+        super(data, bird);
         this._voltage = data.voltage;
         this._isNailed = data.isNailed;
     }
