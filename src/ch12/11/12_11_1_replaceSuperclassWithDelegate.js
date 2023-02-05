@@ -10,14 +10,14 @@ class CatalogItem {
     hasTag(arg) { return this._tags.includes(arg); }
 }
 
-class Scroll extends CatalogItem {
-    constructor(id, title, tags, dateLastCleaned) {
-        super(id, title, tags);
-        this._catalogItem = new CatalogItem(id, title, tags);
+class Scroll {
+    constructor(id, dateLastCleaned, catalogID, catalog) {
+        this._id = id;
+        this._catalogItem = catalog.get(catalogID);
         this._lastCleaned = dateLastCleaned;
     }
 
-    get id() { return this._catalogItem.id; }
+    get id() { return this._id; }
     get title() { return this._catalogItem.title; }
     hasTag(arg) {
         return this._catalogItem.hasTag(aString);
@@ -32,3 +32,9 @@ class Scroll extends CatalogItem {
         return this._lastCleaned.until(targetDate, ChronoUnit.DAYS);
     }
 }
+
+const scrolls = aDocument
+                .map(record => new Scroll(record.id,
+                    LocalDate.parse(record.lastCleaned),
+                    record.catalogData.id,
+                    catalog));
