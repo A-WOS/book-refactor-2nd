@@ -14,20 +14,21 @@ class Bird {
         this._speciesDelegate = this.selectSpeciesDelegate(data);
     }
     get name() { return this._name;}
-    get airSpeedVelocity() { return this._speciesDelegate ? this._speciesDelegate.airSpeedVelocity : null; }
-
+    get airSpeedVelocity() { return this._speciesDelegate.airSpeedVelocity; }
+    get plumage() { return this._speciesDelegate.plumage;}
     selectSpeciesDelegate(data) {
         switch (data.type) {
             case '유럽 제비':
-                return new EuropeanSwallowDelegate();
+                return new EuropeanSwallowDelegate(data, this);
             case '아프리카 제비':
-                return new AfricanSwallowDelegate(data);
+                return new AfricanSwallowDelegate(data, this);
             case '노르웨이 파랑 앵무':
-                return new NorwegianBlueParrotDelegate(data);
+                return new NorwegianBlueParrotDelegate(data, this);
             default:
-                return null;
+                return new SpeciesDelegate(data, this);
         }
     }
+    // Bird 의 나머지 코드 생략...
 }
 
 class SpeciesDelegate {
@@ -38,6 +39,7 @@ class SpeciesDelegate {
     get plumage() {
         return this._bird._plumage || "보통이다";
     }
+    get airSpeedVelocity() {return null;}
 }
 
 class EuropeanSwallowDelegate extends SpeciesDelegate {
