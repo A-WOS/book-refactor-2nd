@@ -45,22 +45,24 @@ class AfricanSwallowDelegate {
 }
 
 class NorwegianBlueParrot extends Bird {
-
     get plumage() {
-        if (this._voltage > 100) return "그을렸다";
-        else return this._plumage || "예쁘다";
+        return this._speciesDelegate.plumage;
     }
-
-
 }
 
 class NorwegianBlueParrotDelegate {
-    constructor(data) {
+    constructor(data, bird) {
+        this._bird = bird;
         this._voltage = data.voltage;
         this._isNailed = data.isNailed;
     }
 
     get airSpeedVelocity() {
         return (this._isNailed) ? 0 : 10 + this._voltage / 10;
+    }
+
+    get plumage() {
+        if (this._voltage > 100) return "그을렸다";
+        else return this._plumage || "예쁘다";
     }
 }
