@@ -34,13 +34,6 @@ class Booking {
     }
 }
 
-class PremiumBooking extends Booking {
-    constructor(show, date, extras) {
-        super(show, date);
-        this._extras = extras;
-    }
-}
-
 class PremiumBookingDelegate {
     constructor(hostBooking, extras) {
         this._host = hostBooking;
@@ -65,7 +58,7 @@ function createBooking(show, date) {
 }
 
 function createPremiumBooking(show, date, extras) {
-    let result = new PremiumBooking(show, date, extras);
+    let result = new Booking(show, date, extras);
 
     result._bePremium(extras);
 
