@@ -16,6 +16,12 @@ class Booking {
             : this._privateBasePrice;
     }
 
+    get hasDinner() {
+        return (this._premiumDeletegate)
+            ? this._premiumDeletegate.hasDinner
+            : undefined;
+    }
+
     get _privateBasePrice() {
         let result = this._show.price;
         if (this.isPeakDay)
@@ -33,10 +39,6 @@ class PremiumBooking extends Booking {
         super(show, date);
         this._extras = extras;
     }
-
-    get hasDinner() {
-        return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
-    }
 }
 
 class PremiumBookingDelegate {
@@ -51,6 +53,10 @@ class PremiumBookingDelegate {
 
     get hasTalkback() {
         return this._host.hasOwnProperty('talkback');
+    }
+
+    get hasDinner() {
+        return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
     }
 }
 
