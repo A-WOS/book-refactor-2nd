@@ -6,7 +6,7 @@ class ResourcePool {
 
     get() {
         let result;
-        if (available.isEmpty()) {
+        if (this.available.isEmpty()) {
             result = Resource.create();
             this.allocated.add(result);
         } else {
