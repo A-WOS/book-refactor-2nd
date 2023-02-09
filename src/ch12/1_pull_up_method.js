@@ -2,7 +2,7 @@ function call() {
     const employee = new Employee();
     console.log(employee.annualCost);
     const department = new Department();
-    console.log(department.totalAnnualCost);
+    console.log(department.annualCost);
 }
 
 class Employee extends Party {
@@ -12,7 +12,7 @@ class Employee extends Party {
 }
 
 class Department extends Party {
-    get totalAnnualCost() {
+    get annualCost() {
         return this.monthlyCost * 12;
     }
 }
