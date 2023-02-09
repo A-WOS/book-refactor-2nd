@@ -16,3 +16,7 @@ class Employee {
 
     get type() { return this._type; }
 }
+
+class Engineer extends Employee {
+    get type() { return "engineer"; }
+}
