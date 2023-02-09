@@ -6,12 +6,17 @@ class ResourcePool {
 
     get() {
         let result;
-        try {
-            result = this.available.pop();
-            this.allocated.add(result);
-        } catch (e) {
+        if (available.isEmpty()) {
             result = Resource.create();
             this.allocated.add(result);
+        } else {
+            try {
+                result = this.available.pop();
+                this.allocated.add(result);
+            } catch (e) {
+                result = Resource.create();
+                this.allocated.add(result);
+            }
         }
         return result;
     }
