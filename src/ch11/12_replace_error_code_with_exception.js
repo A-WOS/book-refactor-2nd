@@ -20,3 +20,11 @@ function calculateShippingCosts(anOrder) {
     if (shippingRules < 0) return shippingRules;
     // 더 관련 없는 코드
 }
+
+class OrderProcessingError extends Error {
+    constructor(errorCode) {
+        super(`주문 처리 오류: ${errorCode}`);
+        this.code = errorCode;
+    }
+    get name() { return "OrderProcessingError"; }
+}
