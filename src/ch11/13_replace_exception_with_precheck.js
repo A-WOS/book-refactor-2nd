@@ -14,8 +14,7 @@ class ResourcePool {
                 result = this.available.pop();
                 this.allocated.add(result);
             } catch (e) {
-                result = Resource.create();
-                this.allocated.add(result);
+                throw AssertionError("도달 불가");
             }
         }
         return result;
