@@ -7,14 +7,6 @@ function baseCharge(usage) {
     return usd(amount);
 }
 
-function bottomBand(usage) {
-    return Math.min(usage, 100);
-}
-
 function withinBand(usage, bottom, top) {
     return usage > bottom ? Math.min(usage, top) - bottom : 0;
-}
-
-function topBand(usage) {
-    return usage > 200 ? usage - 200 : 0;
 }
