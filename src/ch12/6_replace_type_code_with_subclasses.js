@@ -20,3 +20,7 @@ class Employee {
 class Engineer extends Employee {
     get type() { return "engineer"; }
 }
+
+function createEmployee(name, type) {
+    return new Employee(name, type);
+}
