@@ -10,12 +10,8 @@ class ResourcePool {
             result = Resource.create();
             this.allocated.add(result);
         } else {
-            try {
-                result = this.available.pop();
-                this.allocated.add(result);
-            } catch (e) {
-                throw AssertionError("도달 불가");
-            }
+            result = this.available.pop();
+            this.allocated.add(result);
         }
         return result;
     }
