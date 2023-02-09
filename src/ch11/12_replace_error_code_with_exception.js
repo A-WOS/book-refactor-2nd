@@ -1,7 +1,6 @@
 function call() {
-    let status = 0;
     try {
-        status = calculateShippingCosts(orderData);
+        calculateShippingCosts(orderData);
     } catch (e) {
         if (e instanceof OrderProcessingError)
             errorList.push({order: orderData, errorCode: e.code})
@@ -19,7 +18,6 @@ function localShippingRules(country) {
 function calculateShippingCosts(anOrder) {
     // 관련 없는 코드
     const shippingRules = localShippingRules(anOrder.country);
-    if (shippingRules < 0) return shippingRules;
     // 더 관련 없는 코드
 }
 
