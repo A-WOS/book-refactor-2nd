@@ -1,5 +1,10 @@
 function call() {
-    const status = calculateShippingCosts(orderData);
+    let status = 0;
+    try {
+        status = calculateShippingCosts(orderData);
+    } catch (e) {
+        throw e;
+    }
     if (status < 0) errorList.push({order: orderData, errorCode: status})
 }
 
