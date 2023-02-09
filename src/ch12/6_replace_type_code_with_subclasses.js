@@ -1,8 +1,6 @@
 class Employee {
-    constructor(name, type) {
-        this.validateType(type);
+    constructor(name) {
         this._name = name;
-        this._type = type;
     }
 
     validateType(arg) {
@@ -13,8 +11,6 @@ class Employee {
     toString() {
         return `${this._name} (${this.type})`;
     }
-
-    get type() { return this._type; }
 }
 
 class Engineer extends Employee {
@@ -31,9 +27,9 @@ class Salesperson extends Employee {
 
 function createEmployee(name, type) {
     switch (type) {
-        case "engineer": return new Engineer(name, type);
-        case "manager": return new Manager(name, type);
-        case "salesperson": return new Salesperson(name, type);
+        case "engineer": return new Engineer(name);
+        case "manager": return new Manager(name);
+        case "salesperson": return new Salesperson(name);
+        default: throw new Error(`${type}라는 직원 유형은 없습니다.`);
     }
-    return new Employee(name, type);
 }
