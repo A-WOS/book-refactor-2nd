@@ -20,7 +20,7 @@ function loadFromInput(data) {
 
 function createPerson(aRecord) {
     switch (aRecord.gender) {
-        case 'M': return new Male(aRecord.name);
+        case 'M': return new Person(aRecord.name, "M");
         case 'F': return new Female(aRecord.name);
         default: return new Person(aRecord.name);
     }
@@ -38,10 +38,6 @@ class Person {
         return "M" === this._genderCode;
     }
     // 생략
-}
-
-class Male extends Person {
-
 }
 
 class Female extends Person {
