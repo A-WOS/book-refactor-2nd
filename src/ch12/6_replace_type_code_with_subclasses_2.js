@@ -37,13 +37,13 @@ class EmployeeType {
 }
 
 class Engineer extends EmployeeType {
-
+    toString() { return "engineer"; }
 }
 
 class Manager extends EmployeeType {
-
+    toString() { return "manager"; }
 }
 
 class Salesperson extends EmployeeType {
-
+    toString() { return "salesperson"; }
 }
