@@ -11,9 +11,8 @@ class CatalogItem {
 }
 
 // Wrong modeling for scroll: scroll can be one or more in one CatalogItem
-class Scroll extends CatalogItem {
+class Scroll {
     constructor(id, title, tags, dateLastCleaned) {
-        super(id, title, tags);
         this._catalogItem = new CatalogItem(id, title, tags);
         this._lastCleaned = dateLastCleaned;
     }
