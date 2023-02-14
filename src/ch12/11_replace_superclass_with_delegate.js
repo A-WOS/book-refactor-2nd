@@ -13,9 +13,12 @@ class CatalogItem {
 // Wrong modeling for scroll: scroll can be one or more in one CatalogItem
 class Scroll {
     constructor(id, title, tags, dateLastCleaned) {
+        this._id = id;
         this._catalogItem = new CatalogItem(id, title, tags);
         this._lastCleaned = dateLastCleaned;
     }
+
+    get id() { return this._id; }
 
     needsCleaning(targetDate) {
         const threshold = this.hasTag("revered") ? 700 : 1500;
