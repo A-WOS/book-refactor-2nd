@@ -1,7 +1,5 @@
 function createBird(data) {
     switch (data.type) {
-        case '유럽 제비':
-            return new EuropeanSwallow(data);
         case '아프리카 제비':
             return new AfricanSwallow(data);
         case '노르웨이 파랑 앵무':
@@ -15,21 +13,30 @@ class Bird {
     constructor(data) {
         this._name = data.name;
         this._plumage = data.plumage;
+        this._speciesDelegate = this.selectSpeciesDelegate(data);
     }
 
     get name() { return this._name; }
     get plumage() {
         return this._plumage || "보통이다";
     }
-    get airSpeedVelocity() { return null; }
-}
+    get airSpeedVelocity() {
+        return this.speciesDelegate
+            ? this._speciesDelegate.airSpeedVelocity
+            : null;
+    }
 
-class EuropeanSwallow extends Bird {
-    get airSpeedVelocity() { return 35; }
+    selectSpeciesDelegate(data) {
+        switch (data.type) {
+            case '유럽 제비':
+                return new EuropeanSwallowDelegate();
+            default: return null;
+        }
+    }
 }
 
 class EuropeanSwallowDelegate {
-
+    get airSpeedVelocity() { return 35; }
 }
 
 class AfricanSwallow extends Bird {
