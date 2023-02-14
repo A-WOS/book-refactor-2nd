@@ -1,6 +1,6 @@
 function call() {
-    const aBooking = new Booking(show, date);
-    const aPremiumBooking = new PremiumBooking(show, date, extras);
+    const aBooking = createBooking(show, date);
+    const aPremiumBooking = createPremiumBooking(show, date, extras);
 }
 
 function createBooking(show, date) {
@@ -8,7 +8,9 @@ function createBooking(show, date) {
 }
 
 function createPremiumBooking(show, date, extras) {
-    return new PremiumBooking(show, date, extras);
+    const result = new PremiumBooking(show, date, extras);
+    result._bePremium(extras);
+    return result;
 }
 
 class Booking {
@@ -44,5 +46,12 @@ class PremiumBooking extends Booking {
 
     get hasDinner() {
         return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
+    }
+}
+
+class PremiumBookingDelegate {
+    constructor(hostBooking, extras) {
+        this._host = hostBooking;
+        this._extras = extras;
     }
 }
