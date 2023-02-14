@@ -1,3 +1,8 @@
+function call() {
+    const aBooking = new Booking(show, date);
+    const aPremiumBooking = new PremiumBooking(show, date, extras);
+}
+
 class Booking {
     constructor(show, date) {
         this._show = show;
