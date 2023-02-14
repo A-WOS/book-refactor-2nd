@@ -28,6 +28,10 @@ class EuropeanSwallow extends Bird {
     get airSpeedVelocity() { return 35; }
 }
 
+class EuropeanSwallowDelegate {
+
+}
+
 class AfricanSwallow extends Bird {
     constructor(data) {
         super(data);
