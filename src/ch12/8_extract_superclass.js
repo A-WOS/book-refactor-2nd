@@ -6,7 +6,6 @@ class Employee extends Party {
     }
 
     get monthlyCost() { return this._monthlyCost; }
-    get name() { return this._name;}
     get id() { return this._id; }
 
     get annualCost() { return this._monthlyCost * 12; }
@@ -19,7 +18,6 @@ class Department extends Party {
     }
 
     get staff() { return this._staff.slice(); }
-    get name() { return this._name;}
 
     get totalMonthlyCost() {
         return this.staff
@@ -40,4 +38,6 @@ class Party {
     constructor(name) {
         this._name = name;
     }
+
+    get name() { return this._name;}
 }
