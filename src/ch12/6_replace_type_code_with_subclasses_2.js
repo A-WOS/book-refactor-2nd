@@ -31,3 +31,19 @@ class Employee {
         }
     }
 }
+
+class EmployeeType {
+
+}
+
+class Engineer extends EmployeeType {
+
+}
+
+class Manager extends EmployeeType {
+
+}
+
+class Salesperson extends EmployeeType {
+
+}
