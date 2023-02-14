@@ -11,7 +11,9 @@ class Bird {
 
     get name() { return this._name; }
     get plumage() {
-        return this._plumage || "보통이다";
+        return this._speciesDelegate
+            ? this._speciesDelegate.plumage
+            : this._plumage || "보통이다";
     }
     get airSpeedVelocity() {
         return this.speciesDelegate
