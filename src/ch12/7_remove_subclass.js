@@ -1,5 +1,5 @@
 function call() {
-    const numberOfMales = people.filter(p => p instanceof Male).length;
+    const numberOfMales = people.filter(p => p.isMale).length;
 }
 
 function createPerson(name) {
@@ -33,6 +33,9 @@ class Person {
     get name() { return this._name; }
     get genderCode() { return "X"; }
 
+    get isMale() {
+        return this instanceof Male;
+    }
     // 생략
 }
 
