@@ -12,9 +12,9 @@ class CatalogItem {
 
 // Wrong modeling for scroll: scroll can be one or more in one CatalogItem
 class Scroll {
-    constructor(id, title, tags, dateLastCleaned) {
+    constructor(id, dateLastCleaned, catalogID, catalog) {
         this._id = id;
-        this._catalogItem = new CatalogItem(id, title, tags);
+        this._catalogItem = catalog.get(catalogID);
         this._lastCleaned = dateLastCleaned;
     }
 
