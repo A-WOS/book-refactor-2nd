@@ -1,3 +1,7 @@
+function call() {
+    const numberOfMales = people.filter(p => p instanceof Male).length;
+}
+
 class Person {
     constructor(name) {
         this._name = name;
